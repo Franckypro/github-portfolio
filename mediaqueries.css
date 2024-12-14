@@ -70,16 +70,11 @@
   }
 
   .details-container {
-    margin-bottom: 2rem;
     padding: 1.5rem;
   }
 
   .experience-sub-title {
     font-size: 1.5rem;
-  }
-
-  .details-container p {
-    font-size: 1rem;
   }
 
   /* Projects Section */
@@ -93,14 +88,7 @@
   }
 
   .details-container {
-    margin-bottom: 2rem;
     padding: 2rem;
-  }
-
-  .project-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
   }
 
   .project-btn {
@@ -110,7 +98,6 @@
   /* Contact Section */
   #contact {
     padding: 2rem 5%;
-    text-align: center;
   }
 
   .contact-info-container p {
