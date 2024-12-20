@@ -2050,42 +2050,42 @@
                     <div data-aos-delay="600" class="col-lg-7 contact-input">
                         <div class="contact-form-wrapper">
                             <div class="introduce">
-                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" onsubmit="sendEmail(event)">
+                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" onsubmit="openGmail(event)">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Votre nom</label>
                                             <input class="form-control form-control-lg" name="contact-name" id="contact-name" type="text" required>
                                         </div>
                                     </div>
-
+                    
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-phone">Numéro de téléphone</label>
                                             <input class="form-control" name="contact-phone" id="contact-phone" type="text" required>
                                         </div>
                                     </div>
-
+                    
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-email">Email</label>
                                             <input class="form-control form-control-sm" id="contact-email" name="contact-email" type="email" required>
                                         </div>
                                     </div>
-
+                    
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="subject">Objet</label>
                                             <input class="form-control form-control-sm" id="subject" name="subject" type="text" required>
                                         </div>
                                     </div>
-
+                    
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Votre message</label>
                                             <textarea name="contact-message" id="contact-message" cols="30" rows="10" required></textarea>
                                         </div>
                                     </div>
-
+                    
                                     <div class="col-lg-12">
                                         <button type="submit" class="rn-btn">
                                             <span>SEND MESSAGE</span>
@@ -2096,31 +2096,30 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <script>
-                        function sendEmail(event) {
+                        function openGmail(event) {
                             event.preventDefault(); // Empêche le rechargement de la page
-
-                            // Récupérer les valeurs des champs
+                    
+                            // Récupérer les valeurs des champs du formulaire
                             const name = document.getElementById('contact-name').value;
                             const phone = document.getElementById('contact-phone').value;
                             const email = document.getElementById('contact-email').value;
                             const subject = document.getElementById('subject').value;
                             const message = document.getElementById('contact-message').value;
-
-                            // Construire le contenu de l'e-mail
-                            const mailToLink = `mailto:ffouejio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-                                `Nom : ${name}%0A` +
-                                `Téléphone : ${phone}%0A` +
-                                `Email : ${email}%0A%0A` +
-                                `Message : %0A${message}`
+                    
+                            // Construire le lien Gmail
+                            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ffouejio@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                                `Nom : ${name}\n` +
+                                `Téléphone : ${phone}\n` +
+                                `Email : ${email}\n\n` +
+                                `Message :\n${message}`
                             )}`;
-
-                            // Ouvrir le lien mailto
-                            window.location.href = mailToLink;
+                    
+                            // Ouvrir Gmail dans un nouvel onglet
+                            window.open(gmailLink, '_blank');
                         }
-                    </script>
-
+                    </script>                    
                     
                 </div>
             </div>
