@@ -2297,88 +2297,86 @@
                             <h3>
                                 <span>Big_Data_Orange</span> Développement BIG DATA
                             </h3>
-                            <div class="mb--5" style="text-align: left; font-family: monospace; white-space: pre-wrap;">
-                                <code>
-                                Analyse Prédictive de la Qualité des Oranges 🍊
+                            <pre class="mb--30">
+Analyse Prédictive de la Qualité des Oranges 🍊
 
-                                📌 Description Ce projet utilise PySpark, Pandas, Matplotlib, Seaborn et scikit-learn pour effectuer une analyse exploratoire et une prédiction de la qualité des oranges à partir d’un ensemble de données contenant diverses caractéristiques (taille, poids, acidité, douceur, couleur, etc.). Il s'agit d'un workflow complet allant du prétraitement des données jusqu’à l'entraînement d’un modèle de régression avec GBTRegressor.
+📌 Description Ce projet utilise PySpark, Pandas, Matplotlib, Seaborn et scikit-learn pour effectuer une analyse exploratoire et une prédiction de la qualité des oranges à partir d’un ensemble de données contenant diverses caractéristiques (taille, poids, acidité, douceur, couleur, etc.). Il s'agit d'un workflow complet allant du prétraitement des données jusqu’à l'entraînement d’un modèle de régression avec GBTRegressor.
 
-                                📦 Prérequis Les bibliothèques nécessaires sont :
+📦 Prérequis Les bibliothèques nécessaires sont :
 
-                                pip install findspark
+pip install findspark
 
-                                pip install xgboost
+pip install xgboost
 
-                                pip install scikit-learn
+pip install scikit-learn
 
-                                pip install pyspark
+pip install pyspark
 
-                                ⚙️ Étapes de traitement Initialisation de Spark :
+⚙️ Étapes de traitement Initialisation de Spark :
 
-                                Création d’une session Spark avec SparkSession
+Création d’une session Spark avec SparkSession
 
-                                Détection du nombre de cœurs de calcul disponibles
+Détection du nombre de cœurs de calcul disponibles
 
-                                Chargement des données :
+Chargement des données :
 
-                                Lecture du fichier orange.csv
+Lecture du fichier orange.csv
 
-                                Vérification de la structure, des valeurs nulles et des doublons
+Vérification de la structure, des valeurs nulles et des doublons
 
-                                Analyse exploratoire :
+Analyse exploratoire :
 
-                                Affichage de la distribution des variables
+Affichage de la distribution des variables
 
-                                Utilisation de boxplot et histplot pour détecter les outliers
+Utilisation de boxplot et histplot pour détecter les outliers
 
-                                Visualisation par nuage de points
+Visualisation par nuage de points
 
-                                Prétraitement des données :
+Prétraitement des données :
 
-                                Encodage des variables catégorielles (Color, Variety, Blemishes)
+Encodage des variables catégorielles (Color, Variety, Blemishes)
 
-                                Nettoyage et renommage des colonnes
+Nettoyage et renommage des colonnes
 
-                                Standardisation des données numériques avec StandardScaler
+Standardisation des données numériques avec StandardScaler
 
-                                Préparation des features :
+Préparation des features :
 
-                                Construction du vecteur de features avec VectorAssembler
+Construction du vecteur de features avec VectorAssembler
 
-                                Séparation du dataset en ensembles d’entraînement et de test
+Séparation du dataset en ensembles d’entraînement et de test
 
-                                Modélisation :
+Modélisation :
 
-                                Entraînement d’un modèle de régression GBTRegressor (Gradient Boosted Tree)
+Entraînement d’un modèle de régression GBTRegressor (Gradient Boosted Tree)
 
-                                Évaluation avec différentes métriques (R², RMSE, MAE)
+Évaluation avec différentes métriques (R², RMSE, MAE)
 
-                                Optimisation des hyperparamètres avec ParamGridBuilder et CrossValidator
+Optimisation des hyperparamètres avec ParamGridBuilder et CrossValidator
 
-                                📊 Technologies utilisées Apache Spark / PySpark
+📊 Technologies utilisées Apache Spark / PySpark
 
-                                Pandas & PySpark.Pandas
+Pandas & PySpark.Pandas
 
-                                Matplotlib & Seaborn
+Matplotlib & Seaborn
 
-                                Scikit-learn
+Scikit-learn
 
-                                XGBoost
+XGBoost
 
-                                📁 Données Les données utilisées dans ce projet se trouvent dans le fichier orange.csv, qui contient les colonnes suivantes :
+📁 Données Les données utilisées dans ce projet se trouvent dans le fichier orange.csv, qui contient les colonnes suivantes :
 
-                                Size (cm), Weight (g), Brix (Sweetness), pH (Acidity)
+Size (cm), Weight (g), Brix (Sweetness), pH (Acidity)
 
-                                Softness (1-5), HarvestTime (days), Ripeness (1-5)
+Softness (1-5), HarvestTime (days), Ripeness (1-5)
 
-                                Color, Variety, Blemishes (Y/N), Quality (1-5)
+Color, Variety, Blemishes (Y/N), Quality (1-5)
 
-                                🎯 Objectif L'objectif principal est de prédire la qualité (Quality (1-5)) d’une orange à partir de ses caractéristiques physiques et chimiques en utilisant un modèle supervisé de régression.
+🎯 Objectif L'objectif principal est de prédire la qualité (Quality (1-5)) d’une orange à partir de ses caractéristiques physiques et chimiques en utilisant un modèle supervisé de régression.
 
-                                ✍️ Auteur Fouejio Francky Joël
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </code>
-                            </div>
+✍️ Auteur Fouejio Francky Joël
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
