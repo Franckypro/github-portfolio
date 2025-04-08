@@ -2424,61 +2424,61 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>CHUN</span> Développement Modèle de Deep Learning
                             </h3>
-                            <pre class="mb--30">
-                                DeepLearning_CHUN
-                                Prédiction du Churn des Clients
-                                Ce projet utilise un modèle de Machine Learning pour prédire le churn des clients d'une entreprise, en utilisant un ensemble de données sur les clients (Churn_Modelling.csv). Le modèle prédit si un client quittera ou non l'entreprise en fonction de différentes caractéristiques comme l'âge, le sexe, la géographie, le score de crédit, etc.
+                            <pre class="mb--30" style="color: black">
+DeepLearning_CHUN
+Prédiction du Churn des Clients
+Ce projet utilise un modèle de Machine Learning pour prédire le churn des clients d'une entreprise, en utilisant un ensemble de données sur les clients (Churn_Modelling.csv). Le modèle prédit si un client quittera ou non l'entreprise en fonction de différentes caractéristiques comme l'âge, le sexe, la géographie, le score de crédit, etc.
 
-                                Description du Code
-                                Chargement et Préparation des Données :
+Description du Code
+Chargement et Préparation des Données :
 
-                                Le fichier CSV Churn_Modelling.csv est chargé dans un DataFrame pandas.
-                                Les colonnes inutiles (RowNumber, CustomerId, Surname) sont supprimées.
-                                La colonne Gender est encodée en valeurs numériques à l'aide de LabelEncoder.
-                                Exploration des Données : La distribution des classes de la variable cible Exited (qui indique si un client a quitté l'entreprise) est affichée, montrant un déséquilibre avec plus de clients restant que de clients quittant.
+Le fichier CSV Churn_Modelling.csv est chargé dans un DataFrame pandas.
+Les colonnes inutiles (RowNumber, CustomerId, Surname) sont supprimées.
+La colonne Gender est encodée en valeurs numériques à l'aide de LabelEncoder.
+Exploration des Données : La distribution des classes de la variable cible Exited (qui indique si un client a quitté l'entreprise) est affichée, montrant un déséquilibre avec plus de clients restant que de clients quittant.
 
-                                Séparation des Données :
+Séparation des Données :
 
-                                Les données sont séparées en caractéristiques (X) et variable cible (y).
-                                L'ensemble des données est divisé en ensembles d'entraînement (75%) et de test (25%) à l'aide de train_test_split.
-                                Encodage des Catégories : La colonne Geography est encodée à l'aide de TargetEncoder, ce qui permet de transformer les variables catégorielles en valeurs numériques en fonction de la variable cible.
+Les données sont séparées en caractéristiques (X) et variable cible (y).
+L'ensemble des données est divisé en ensembles d'entraînement (75%) et de test (25%) à l'aide de train_test_split.
+Encodage des Catégories : La colonne Geography est encodée à l'aide de TargetEncoder, ce qui permet de transformer les variables catégorielles en valeurs numériques en fonction de la variable cible.
 
-                                Normalisation des Données : Les données d'entraînement et de test sont normalisées à l'aide de StandardScaler.
+Normalisation des Données : Les données d'entraînement et de test sont normalisées à l'aide de StandardScaler.
 
-                                Modélisation avec un Réseau de Neurones :
+Modélisation avec un Réseau de Neurones :
 
-                                Un modèle de réseau de neurones est construit en utilisant Keras. Le modèle est compilé avec l'optimiseur adam et la fonction de perte binary_crossentropy.
-                                Le modèle est entraîné pendant 20 époques avec un lot de taille 16, en utilisant 20% des données pour la validation.
-                                Visualisation des Résultats de l'Entraînement : Les courbes de perte d'entraînement et de validation sont tracées au fil des époques.
+Un modèle de réseau de neurones est construit en utilisant Keras. Le modèle est compilé avec l'optimiseur adam et la fonction de perte binary_crossentropy.
+Le modèle est entraîné pendant 20 époques avec un lot de taille 16, en utilisant 20% des données pour la validation.
+Visualisation des Résultats de l'Entraînement : Les courbes de perte d'entraînement et de validation sont tracées au fil des époques.
 
-                                Prédictions et Évaluation du Modèle :
+Prédictions et Évaluation du Modèle :
 
-                                Les prédictions sont effectuées sur l'ensemble de test, et les résultats sont binarisés (valeurs supérieures à 0.5 sont considérées comme positives).
-                                Une matrice de confusion est générée pour évaluer les performances du modèle, et un rapport de classification est affiché pour analyser la précision, le rappel, et le score F1 du modèle.
-                                Dépendances
-                                pandas
-                                numpy
-                                matplotlib
-                                sklearn
-                                keras
-                                seaborn
-                                category_encoders
-                                Vous pouvez installer ces dépendances avec la commande suivante :
+Les prédictions sont effectuées sur l'ensemble de test, et les résultats sont binarisés (valeurs supérieures à 0.5 sont considérées comme positives).
+Une matrice de confusion est générée pour évaluer les performances du modèle, et un rapport de classification est affiché pour analyser la précision, le rappel, et le score F1 du modèle.
+Dépendances
+pandas
+numpy
+matplotlib
+sklearn
+keras
+seaborn
+category_encoders
+Vous pouvez installer ces dépendances avec la commande suivante :
 
-                                pip install pandas numpy matplotlib scikit-learn keras seaborn category_encoders
-                                Résultats
-                                Le modèle prédit si un client quittera l'entreprise en fonction des caractéristiques des données. Le rapport de classification montre que le modèle a une précision globale de 84% :
+pip install pandas numpy matplotlib scikit-learn keras seaborn category_encoders
+Résultats
+Le modèle prédit si un client quittera l'entreprise en fonction des caractéristiques des données. Le rapport de classification montre que le modèle a une précision globale de 84% :
 
-                                Précision : 0.85 pour les clients qui ne quittent pas, et 0.77 pour ceux qui quittent.
+Précision : 0.85 pour les clients qui ne quittent pas, et 0.77 pour ceux qui quittent.
 
-                                Rappel : 0.98 pour les clients qui ne quittent pas, et 0.31 pour ceux qui quittent.
+Rappel : 0.98 pour les clients qui ne quittent pas, et 0.31 pour ceux qui quittent.
 
-                                F1-score : 0.91 pour les clients qui ne quittent pas, et 0.44 pour ceux qui quittent.
+F1-score : 0.91 pour les clients qui ne quittent pas, et 0.44 pour ceux qui quittent.
 
-                                Conclusion Le modèle permet de prédire efficacement si un client quittera l'entreprise, bien que l'équilibre des classes soit un facteur limitant pour la prédiction des clients qui quittent. Des améliorations pourraient inclure l'utilisation d'autres techniques pour traiter le déséquilibre des classes, comme la sur-échantillonnage ou l'ajustement du seuil de classification.
+Conclusion Le modèle permet de prédire efficacement si un client quittera l'entreprise, bien que l'équilibre des classes soit un facteur limitant pour la prédiction des clients qui quittent. Des améliorations pourraient inclure l'utilisation d'autres techniques pour traiter le déséquilibre des classes, comme la sur-échantillonnage ou l'ajustement du seuil de classification.
 
-                                Ce fichier README.md fournit une vue d'ensemble du code, de ses objectifs, des étapes suivies et des résultats obtenus.
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+Ce fichier README.md fournit une vue d'ensemble du code, de ses objectifs, des étapes suivies et des résultats obtenus.
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
@@ -2527,79 +2527,80 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>transferlearning</span> Développement Modèle de Deep Learning
                             </h3>
-                            <pre class="mb--30">Projet de Classification d'Images avec TensorFlow 🧠📸
-                                Description
-                                Ce projet utilise TensorFlow pour effectuer de la classification d'images en utilisant un modèle préexistant de ResNet50. Le modèle est fine-tuné (apprentissage par transfert) pour être utilisé avec un ensemble de données local, permettant la classification binaire d'images, comme des photos de chats et chiens.
-                                
-                                Technologies utilisées 🛠️
-                                TensorFlow (Version 2.16.1)
-                                Pandas
-                                Matplotlib
-                                Seaborn
-                                NumPy
-                                Étapes du projet 🚀
-                                1. Chargement et prétraitement de l'image 🖼️
-                                L'image est chargée et redimensionnée à une taille de 224x224 pixels pour être compatible avec le modèle ResNet50.
-                                
-                                sample_image = tf.keras.preprocessing.image.load_img('bicycle.jpg', target_size=(224,224))
-                                sample_image = tf.keras.preprocessing.image.img_to_array(sample_image)  # Transformation en tableau
-                                sample_image = np.expand_dims(sample_image, axis=0)  # Préparation pour le modèle
-                                sample_image = tf.keras.applications.resnet50.preprocess_input(sample_image)
-                                2. Chargement du modèle pré-entraîné 🧑‍💻
-                                Le modèle ResNet50 est chargé avec des poids pré-entraînés sur ImageNet.
-                                
-                                model = tf.keras.applications.ResNet50(weights='imagenet')
-                                3. Fine-tuning (Apprentissage par Transfert) 🔄
-                                Le modèle ResNet50 est chargé sans la partie supérieure (include_top=False), puis une série de couches denses est ajoutée pour adapter le modèle à la classification binaire (chats vs chiens).
-                                
-                                model = tf.keras.applications.ResNet50(weights='imagenet', include_top=False)
-                                x = model.output
-                                x = tf.keras.layers.GlobalAveragePooling2D()(x)
-                                x = tf.keras.layers.Dense(1024, activation='relu')(x)
-                                # Ajouter plus de couches pour le fine-tuning
-                                4. Entraînement du modèle ⚙️
-                                Le modèle est entraîné sur un ensemble de données d'images locales avec un générateur d'images.
-                                
-                                train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(preprocessing_function=tf.keras.applications.resnet50.preprocess_input)
-                                train_generator = train_datagen.flow_from_directory('training_set', target_size=(224,224), batch_size=32, class_mode='binary')
-                                
-                                model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-                                hist = model.fit(train_generator, epochs=5)
-                                5. Visualisation des résultats 📊
-                                Les courbes de perte et précision sont tracées pour évaluer l'évolution de l'entraînement.
-                                
-                                plt.plot(hist.history['accuracy'])
-                                plt.title('Accuracy during training')
-                                plt.xlabel('Epoch')
-                                plt.ylabel('Accuracy')
-                                plt.legend(['Training Accuracy'])
-                                plt.plot(hist.history['loss'])
-                                plt.title('Loss during training')
-                                plt.xlabel('Epoch')
-                                plt.ylabel('Loss')
-                                plt.legend(['Training Loss'])
-                                6. Prédiction sur une nouvelle image 🐱🐶
-                                Une fois l'entraînement terminé, le modèle peut être utilisé pour effectuer des prédictions sur de nouvelles images.
-                                
-                                sample_image = tf.keras.preprocessing.image.load_img('cat_pour_transfer.jpg', target_size=(224,224))
-                                sample_image = tf.keras.preprocessing.image.img_to_array(sample_image)
-                                sample_image = np.expand_dims(sample_image, axis=0)
-                                sample_image = tf.keras.applications.resnet50.preprocess_input(sample_image)
-                                predictions = model.predict(sample_image)
-                                print('Prédictions :', predictions)
-                                Résultats 🎯
-                                Le modèle sera capable de classifier les images en fonction des chats et chiens avec une précision croissante au fur et à mesure des époques d'entraînement.
-                                
-                                Prérequis 📦
-                                TensorFlow
-                                NumPy
-                                Matplotlib
-                                Seaborn
-                                Pandas
-                                Conclusion 💡
-                                Ce projet montre comment utiliser l'apprentissage par transfert pour adapter un modèle pré-entraîné à un problème spécifique, tout en mettant en œuvre des techniques courantes dans la classification d'images avec TensorFlow.
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+                            <pre class="mb--30" style="color: black">
+Projet de Classification d'Images avec TensorFlow 🧠📸
+Description
+Ce projet utilise TensorFlow pour effectuer de la classification d'images en utilisant un modèle préexistant de ResNet50. Le modèle est fine-tuné (apprentissage par transfert) pour être utilisé avec un ensemble de données local, permettant la classification binaire d'images, comme des photos de chats et chiens.
+
+Technologies utilisées 🛠️
+TensorFlow (Version 2.16.1)
+Pandas
+Matplotlib
+Seaborn
+NumPy
+Étapes du projet 🚀
+1. Chargement et prétraitement de l'image 🖼️
+L'image est chargée et redimensionnée à une taille de 224x224 pixels pour être compatible avec le modèle ResNet50.
+
+sample_image = tf.keras.preprocessing.image.load_img('bicycle.jpg', target_size=(224,224))
+sample_image = tf.keras.preprocessing.image.img_to_array(sample_image)  # Transformation en tableau
+sample_image = np.expand_dims(sample_image, axis=0)  # Préparation pour le modèle
+sample_image = tf.keras.applications.resnet50.preprocess_input(sample_image)
+2. Chargement du modèle pré-entraîné 🧑‍💻
+Le modèle ResNet50 est chargé avec des poids pré-entraînés sur ImageNet.
+
+model = tf.keras.applications.ResNet50(weights='imagenet')
+3. Fine-tuning (Apprentissage par Transfert) 🔄
+Le modèle ResNet50 est chargé sans la partie supérieure (include_top=False), puis une série de couches denses est ajoutée pour adapter le modèle à la classification binaire (chats vs chiens).
+
+model = tf.keras.applications.ResNet50(weights='imagenet', include_top=False)
+x = model.output
+x = tf.keras.layers.GlobalAveragePooling2D()(x)
+x = tf.keras.layers.Dense(1024, activation='relu')(x)
+# Ajouter plus de couches pour le fine-tuning
+4. Entraînement du modèle ⚙️
+Le modèle est entraîné sur un ensemble de données d'images locales avec un générateur d'images.
+
+train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(preprocessing_function=tf.keras.applications.resnet50.preprocess_input)
+train_generator = train_datagen.flow_from_directory('training_set', target_size=(224,224), batch_size=32, class_mode='binary')
+
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+hist = model.fit(train_generator, epochs=5)
+5. Visualisation des résultats 📊
+Les courbes de perte et précision sont tracées pour évaluer l'évolution de l'entraînement.
+
+plt.plot(hist.history['accuracy'])
+plt.title('Accuracy during training')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend(['Training Accuracy'])
+plt.plot(hist.history['loss'])
+plt.title('Loss during training')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend(['Training Loss'])
+6. Prédiction sur une nouvelle image 🐱🐶
+Une fois l'entraînement terminé, le modèle peut être utilisé pour effectuer des prédictions sur de nouvelles images.
+
+sample_image = tf.keras.preprocessing.image.load_img('cat_pour_transfer.jpg', target_size=(224,224))
+sample_image = tf.keras.preprocessing.image.img_to_array(sample_image)
+sample_image = np.expand_dims(sample_image, axis=0)
+sample_image = tf.keras.applications.resnet50.preprocess_input(sample_image)
+predictions = model.predict(sample_image)
+print('Prédictions :', predictions)
+Résultats 🎯
+Le modèle sera capable de classifier les images en fonction des chats et chiens avec une précision croissante au fur et à mesure des époques d'entraînement.
+
+Prérequis 📦
+TensorFlow
+NumPy
+Matplotlib
+Seaborn
+Pandas
+Conclusion 💡
+Ce projet montre comment utiliser l'apprentissage par transfert pour adapter un modèle pré-entraîné à un problème spécifique, tout en mettant en œuvre des techniques courantes dans la classification d'images avec TensorFlow.
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
@@ -2647,74 +2648,75 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>diabetes_oversampling_undersampling</span> Développement Modèle de Machine Learning
                             </h3>
-                            <pre class="mb--30">🩺 Analyse de Données Médicales - Prédiction du Diabète 🩺
-                                Ce projet vise à analyser les données liées au diabète et à créer un modèle prédictif pour déterminer si une personne est susceptible de développer le diabète. Le modèle utilise l'algorithme K-Nearest Neighbors (KNN) et aborde des techniques de rééchantillonnage comme l'oversampling et l'undersampling pour traiter les déséquilibres dans les données.
-                                
-                                📦 Packages nécessaires
-                                Le code utilise plusieurs bibliothèques Python pour le traitement des données et la création du modèle :
-                                
-                                numpy
-                                pandas
-                                sklearn
-                                matplotlib
-                                seaborn
-                                imblearn
-                                📊 Chargement et Exploration des Données
-                                Les données utilisées proviennent d'un fichier CSV, diabetes.csv, qui contient les informations suivantes :
-                                
-                                Glucose
-                                BloodPressure
-                                SkinThickness
-                                Insulin
-                                BMI
-                                DiabetesPedigreeFunction
-                                Age
-                                Outcome (0 = pas diabétique, 1 = diabétique)
-                                Nettoyage des données
-                                Suppression des doublons : Les doublons sont supprimés en fonction de la colonne Age en gardant la première occurrence.
-                                Analyse des valeurs manquantes : Aucune valeur manquante n'est trouvée dans les données.
-                                Visualisation des Données
-                                Distribution des classes : Un diagramme circulaire est généré pour afficher la répartition des patients diabétiques et non diabétiques.
-                                Corrélation entre les variables : Une carte de chaleur est utilisée pour visualiser la corrélation entre les différentes variables.
-                                🔍 Modélisation
-                                Séparation des Données
-                                Les données sont séparées en variables explicatives (X) et cible (y). Ensuite, elles sont divisées en ensembles d'entraînement et de test.
-                                
-                                Standardisation
-                                Les données sont standardisées à l'aide de StandardScaler pour rendre les différentes caractéristiques comparables.
-                                
-                                Modèle KNN
-                                Un modèle de classification est créé en utilisant l'algorithme K-Nearest Neighbors (KNN). Ensuite, des évaluations de performance sont réalisées à l'aide de la validation croisée et des courbes ROC (Receiver Operating Characteristic).
-                                
-                                ⚖️ Techniques de Rééchantillonnage
-                                🛠️ Oversampling (Suréchantillonnage)
-                                L'oversampling est appliqué pour équilibrer les classes en augmentant le nombre d'échantillons de la classe minoritaire. Cela améliore les performances du modèle sur la classe minoritaire.
-                                
-                                SMOTE
-                                SMOTE (Synthetic Minority Over-sampling Technique) est utilisé pour générer des échantillons synthétiques de la classe minoritaire.
-                                
-                                📉 Undersampling (Sous-échantillonnage)
-                                L'undersampling est une technique qui consiste à réduire la taille de la classe majoritaire pour équilibrer les classes. Cela peut améliorer la performance du modèle en réduisant le biais de la classe majoritaire.
-                                
-                                Évaluation des Modèles
-                                Les performances du modèle sont évaluées pour les deux scénarios :
-                                
-                                Base basique (sans rééchantillonnage)
-                                Base oversampled (avec suréchantillonnage)
-                                🚀 Visualisation des Performances
-                                Les résultats des modèles sont comparés à l'aide de l'AUC (Area Under the Curve) sur les ensembles d'entraînement et de test.
-                                
-                                📈 Exemple de Courbe ROC
-                                Les courbes ROC sont tracées pour les ensembles d'entraînement et de test afin d'évaluer les performances des modèles.
-                                
-                                📝 Conclusion
-                                Ce projet illustre l'importance du traitement des déséquilibres dans les données pour améliorer les performances des modèles de classification. L'oversampling et l'undersampling sont des techniques puissantes pour gérer ce problème.
-                                
-                                📅 Étapes suivantes
-                                Améliorer le modèle avec d'autres techniques de classification.
-                                Ajouter des fonctionnalités de prédiction en temps réel.
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+                            <pre class="mb--30" style="color: black">
+🩺 Analyse de Données Médicales - Prédiction du Diabète 🩺
+Ce projet vise à analyser les données liées au diabète et à créer un modèle prédictif pour déterminer si une personne est susceptible de développer le diabète. Le modèle utilise l'algorithme K-Nearest Neighbors (KNN) et aborde des techniques de rééchantillonnage comme l'oversampling et l'undersampling pour traiter les déséquilibres dans les données.
+
+📦 Packages nécessaires
+Le code utilise plusieurs bibliothèques Python pour le traitement des données et la création du modèle :
+
+numpy
+pandas
+sklearn
+matplotlib
+seaborn
+imblearn
+📊 Chargement et Exploration des Données
+Les données utilisées proviennent d'un fichier CSV, diabetes.csv, qui contient les informations suivantes :
+
+Glucose
+BloodPressure
+SkinThickness
+Insulin
+BMI
+DiabetesPedigreeFunction
+Age
+Outcome (0 = pas diabétique, 1 = diabétique)
+Nettoyage des données
+Suppression des doublons : Les doublons sont supprimés en fonction de la colonne Age en gardant la première occurrence.
+Analyse des valeurs manquantes : Aucune valeur manquante n'est trouvée dans les données.
+Visualisation des Données
+Distribution des classes : Un diagramme circulaire est généré pour afficher la répartition des patients diabétiques et non diabétiques.
+Corrélation entre les variables : Une carte de chaleur est utilisée pour visualiser la corrélation entre les différentes variables.
+🔍 Modélisation
+Séparation des Données
+Les données sont séparées en variables explicatives (X) et cible (y). Ensuite, elles sont divisées en ensembles d'entraînement et de test.
+
+Standardisation
+Les données sont standardisées à l'aide de StandardScaler pour rendre les différentes caractéristiques comparables.
+
+Modèle KNN
+Un modèle de classification est créé en utilisant l'algorithme K-Nearest Neighbors (KNN). Ensuite, des évaluations de performance sont réalisées à l'aide de la validation croisée et des courbes ROC (Receiver Operating Characteristic).
+
+⚖️ Techniques de Rééchantillonnage
+🛠️ Oversampling (Suréchantillonnage)
+L'oversampling est appliqué pour équilibrer les classes en augmentant le nombre d'échantillons de la classe minoritaire. Cela améliore les performances du modèle sur la classe minoritaire.
+
+SMOTE
+SMOTE (Synthetic Minority Over-sampling Technique) est utilisé pour générer des échantillons synthétiques de la classe minoritaire.
+
+📉 Undersampling (Sous-échantillonnage)
+L'undersampling est une technique qui consiste à réduire la taille de la classe majoritaire pour équilibrer les classes. Cela peut améliorer la performance du modèle en réduisant le biais de la classe majoritaire.
+
+Évaluation des Modèles
+Les performances du modèle sont évaluées pour les deux scénarios :
+
+Base basique (sans rééchantillonnage)
+Base oversampled (avec suréchantillonnage)
+🚀 Visualisation des Performances
+Les résultats des modèles sont comparés à l'aide de l'AUC (Area Under the Curve) sur les ensembles d'entraînement et de test.
+
+📈 Exemple de Courbe ROC
+Les courbes ROC sont tracées pour les ensembles d'entraînement et de test afin d'évaluer les performances des modèles.
+
+📝 Conclusion
+Ce projet illustre l'importance du traitement des déséquilibres dans les données pour améliorer les performances des modèles de classification. L'oversampling et l'undersampling sont des techniques puissantes pour gérer ce problème.
+
+📅 Étapes suivantes
+Améliorer le modèle avec d'autres techniques de classification.
+Ajouter des fonctionnalités de prédiction en temps réel.
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
@@ -2761,96 +2763,97 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>ML_-regression_logistique</span> Développement Modèle de Machine Learning
                             </h3>
-                            <pre class="mb--30">📊 Analyse des Données et Modélisation Logistique
-                                Ce projet vise à analyser un jeu de données provenant des réseaux sociaux et à prédire si une personne achètera un produit en fonction de son âge et de son salaire estimé. Le modèle utilisé est la régression logistique.
-                                
-                                🔧 Prérequis
-                                Avant de lancer le projet, vous devez installer les bibliothèques suivantes :
-                                
-                                pip install pandas numpy matplotlib seaborn scikit-learn
-                                📑 Chargement et exploration des données
-                                Le jeu de données est importé et les premières lignes sont affichées pour avoir un aperçu des données.
-                                
-                                import pandas as pd
-                                
-                                data = pd.read_csv("Social_Network_Ads.csv")
-                                data.head()
-                                Les données comprennent trois colonnes :
-                                
-                                Age : L'âge de l'utilisateur.
-                                EstimatedSalary : Le salaire estimé de l'utilisateur.
-                                Purchased : Si l'utilisateur a acheté ou non (0 pour non, 1 pour oui).
-                                🔍 Exploration des données
-                                Nous examinons les données pour identifier les doublons et vérifier les valeurs uniques dans la colonne Purchased :
-                                
-                                data.Purchased.value_counts()
-                                Ensuite, un scatterplot est généré pour visualiser la répartition des données :
-                                
-                                import seaborn as sns
-                                
-                                sns.scatterplot(x="Age", y="EstimatedSalary", data=data, hue="Purchased")
-                                Nous affichons également une matrice de corrélation pour mieux comprendre les relations entre les variables :
-                                
-                                sns.heatmap(data.corr(), annot=True)
-                                🧮 Préparation des données
-                                Les données sont divisées en ensembles d'entraînement et de test :
-                                
-                                from sklearn.model_selection import train_test_split
-                                
-                                X = data.drop(['Purchased'], axis=1)
-                                y = data[['Purchased']]
-                                
-                                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=123)
-                                Ensuite, les données sont standardisées pour améliorer les performances du modèle :
-                                
-                                from sklearn.preprocessing import StandardScaler
-                                
-                                sc = StandardScaler()
-                                X_train = sc.fit_transform(X_train)
-                                X_test = sc.transform(X_test)
-                                📈 Entraînement du modèle
-                                Nous utilisons la régression logistique pour entraîner le modèle sur les données d'entraînement :
-                                
-                                from sklearn.linear_model import LogisticRegression
-                                
-                                lr = LogisticRegression()
-                                lr.fit(X_train, y_train)
-                                Nous évaluons ensuite la performance du modèle avec l'accuracy score et la matrice de confusion :
-                                
-                                from sklearn.metrics import accuracy_score, confusion_matrix
-                                
-                                y_pred_train = lr.predict(X_train)
-                                print('accuracy_score: ', accuracy_score(y_train, y_pred_train))
-                                📊 Évaluation du modèle
-                                Nous affichons le rapport de classification pour évaluer la performance par classe :
-                                
-                                from sklearn.metrics import classification_report
-                                
-                                print(classification_report(y_train, y_pred_train))
-                                Le modèle est également évalué sur l'ensemble de test :
-                                
-                                y_pred_test = lr.predict(X_test)
-                                print('accuracy_score: ', accuracy_score(y_test, y_pred_test))
-                                print(classification_report(y_test, y_pred_test))
-                                🎯 Prédiction
-                                Pour faire une prédiction, nous pouvons utiliser le modèle sur de nouvelles données :
-                                
-                                prediction = lr.predict(sc.transform([[30, 250000]]))
-                                print(prediction)
-                                💾 Sauvegarde du modèle
-                                Enfin, pour enregistrer le modèle entraîné, vous pouvez utiliser pickle :
-                                
-                                import pickle
-                                pickle.dump(lr, open('nom.pkl', 'wb'))
-                                🔑 Conclusion
-                                Le modèle de régression logistique permet de prédire si un utilisateur va acheter un produit en fonction de son âge et de son salaire. Nous avons optimisé les données et évalué la performance du modèle avant de faire une prédiction sur de nouvelles données.
-                                
-                                🎉 Bonne analyse et bonne prédiction ! 🎉
-                                
-                                
-                                Ce fichier `README.md` décrit les étapes principales du projet, avec des emojis pour ajouter de la convivialité et de l'enthousiasme.
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+                            <pre class="mb--30" style="color: black">
+📊 Analyse des Données et Modélisation Logistique
+Ce projet vise à analyser un jeu de données provenant des réseaux sociaux et à prédire si une personne achètera un produit en fonction de son âge et de son salaire estimé. Le modèle utilisé est la régression logistique.
+
+🔧 Prérequis
+Avant de lancer le projet, vous devez installer les bibliothèques suivantes :
+
+pip install pandas numpy matplotlib seaborn scikit-learn
+📑 Chargement et exploration des données
+Le jeu de données est importé et les premières lignes sont affichées pour avoir un aperçu des données.
+
+import pandas as pd
+
+data = pd.read_csv("Social_Network_Ads.csv")
+data.head()
+Les données comprennent trois colonnes :
+
+Age : L'âge de l'utilisateur.
+EstimatedSalary : Le salaire estimé de l'utilisateur.
+Purchased : Si l'utilisateur a acheté ou non (0 pour non, 1 pour oui).
+🔍 Exploration des données
+Nous examinons les données pour identifier les doublons et vérifier les valeurs uniques dans la colonne Purchased :
+
+data.Purchased.value_counts()
+Ensuite, un scatterplot est généré pour visualiser la répartition des données :
+
+import seaborn as sns
+
+sns.scatterplot(x="Age", y="EstimatedSalary", data=data, hue="Purchased")
+Nous affichons également une matrice de corrélation pour mieux comprendre les relations entre les variables :
+
+sns.heatmap(data.corr(), annot=True)
+🧮 Préparation des données
+Les données sont divisées en ensembles d'entraînement et de test :
+
+from sklearn.model_selection import train_test_split
+
+X = data.drop(['Purchased'], axis=1)
+y = data[['Purchased']]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=123)
+Ensuite, les données sont standardisées pour améliorer les performances du modèle :
+
+from sklearn.preprocessing import StandardScaler
+
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+📈 Entraînement du modèle
+Nous utilisons la régression logistique pour entraîner le modèle sur les données d'entraînement :
+
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression()
+lr.fit(X_train, y_train)
+Nous évaluons ensuite la performance du modèle avec l'accuracy score et la matrice de confusion :
+
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+y_pred_train = lr.predict(X_train)
+print('accuracy_score: ', accuracy_score(y_train, y_pred_train))
+📊 Évaluation du modèle
+Nous affichons le rapport de classification pour évaluer la performance par classe :
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_train, y_pred_train))
+Le modèle est également évalué sur l'ensemble de test :
+
+y_pred_test = lr.predict(X_test)
+print('accuracy_score: ', accuracy_score(y_test, y_pred_test))
+print(classification_report(y_test, y_pred_test))
+🎯 Prédiction
+Pour faire une prédiction, nous pouvons utiliser le modèle sur de nouvelles données :
+
+prediction = lr.predict(sc.transform([[30, 250000]]))
+print(prediction)
+💾 Sauvegarde du modèle
+Enfin, pour enregistrer le modèle entraîné, vous pouvez utiliser pickle :
+
+import pickle
+pickle.dump(lr, open('nom.pkl', 'wb'))
+🔑 Conclusion
+Le modèle de régression logistique permet de prédire si un utilisateur va acheter un produit en fonction de son âge et de son salaire. Nous avons optimisé les données et évalué la performance du modèle avant de faire une prédiction sur de nouvelles données.
+
+🎉 Bonne analyse et bonne prédiction ! 🎉
+
+
+Ce fichier `README.md` décrit les étapes principales du projet, avec des emojis pour ajouter de la convivialité et de l'enthousiasme.
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
@@ -2897,88 +2900,89 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>CNN Covid</span> Développement Modèle de Deep Learning
                             </h3>
-                            <pre class="mb--30">📸 Modèle de Classification d'Images avec Keras
-                                Ce projet utilise un modèle de réseau de neurones convolutif (CNN) pour la classification d'images. Le modèle est entraîné pour différencier deux classes d'images (par exemple, 'covid' et 'normal').
-                                
-                                🛠️ Prérequis
-                                Avant de commencer, assurez-vous d'avoir les bibliothèques suivantes installées :
-                                
-                                tensorflow
-                                matplotlib
-                                seaborn
-                                numpy
-                                pandas
-                                sklearn
-                                Vous pouvez les installer avec la commande suivante :
-                                
-                                pip install tensorflow matplotlib seaborn numpy pandas scikit-learn
-                                🚀 Fonctionnement
-                                1. Construction du Modèle
-                                Le modèle CNN est constitué des étapes suivantes :
-                                
-                                Convolution : Filtrage des caractéristiques de l'image.
-                                MaxPooling : Réduction de la dimensionnalité pour plus d'efficacité.
-                                Dropout : Désactivation aléatoire de neurones pour éviter le surapprentissage (overfitting).
-                                Flatten : Conversion des données en vecteur unidimensionnel.
-                                Dense : Couche entièrement connectée avec activation ReLU pour la première couche et Sigmoid pour la dernière couche.
-                                2. Compilation du Modèle
-                                Le modèle utilise :
-                                
-                                Adam comme optimiseur
-                                Binary Crossentropy comme fonction de perte
-                                Accuracy comme métrique d'évaluation
-                                3. Entraînement du Modèle
-                                L'entraînement utilise un ImageDataGenerator pour augmenter les images d'entraînement (rotation, zoom, déplacement, etc.) et pour normaliser les pixels. Un modèle est sauvegardé après chaque époque si sa précision est la meilleure (ModelCheckpoint), et l'entraînement s'arrête tôt si la perte de validation n'améliore plus après 2 époques (EarlyStopping).
-                                
-                                4. Visualisation des Résultats
-                                Des graphiques sont tracés pour observer l'évolution de la perte et de la précision du modèle pendant l'entraînement. Les graphiques incluent :
-                                
-                                Loss : Evolution de la perte durant l'entraînement.
-                                Accuracy : Evolution de la précision durant l'entraînement.
-                                5. Évaluation du Modèle
-                                Après l'entraînement, le modèle est évalué avec un rapport de classification (classification_report) et une matrice de confusion (confusion_matrix) pour observer la performance sur les données d'entraînement.
-                                
-                                6. Prédictions
-                                Le modèle peut prédire la classe d'une image donnée. Une image est chargée, prétraitée et ensuite prédite pour déterminer si elle appartient à la classe "covid" ou "normal".
-                                
-                                📊 Exemple de Résultat
-                                Lors de l'évaluation sur les images d'entraînement, les résultats obtenus peuvent être comme suit :
-                                
-                                              precision    recall  f1-score   support
-                                           0       0.38      1.00      0.55        94
-                                           1       0.00      0.00      0.00       155
-                                
-                                    accuracy                           0.38       249
-                                   macro avg       0.19      0.50      0.27       249
-                                weighted avg       0.14      0.38      0.21       249
-                                Une matrice de confusion peut également être générée :
-                                
-                                Matrice de confusion
-                                
-                                7. Prédiction d'une Nouvelle Image
-                                Pour prédire la classe d'une nouvelle image :
-                                
-                                test_image = image.load_img('pred.jpeg', target_size=(64,64))
-                                test_image = image.img_to_array(test_image)
-                                test_image = np.expand_dims(test_image, axis=0)
-                                result = classifier.predict(test_image)
-                                
-                                for key, value in training_set.class_indices.items():
-                                    if result == value:
-                                        print('La classe prédite est:', key)
-                                📚 Conclusion
-                                Ce modèle de classification d'images permet de différencier des classes basées sur des caractéristiques visuelles. Il peut être amélioré par des techniques supplémentaires comme la régularisation, l'ajustement des hyperparamètres et l'augmentation des données. Utilisez ce modèle comme base pour des applications de reconnaissance d'images.
-                                
-                                📥 Contribution
-                                Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations ou des corrections, n'hésitez pas à soumettre une pull request.
-                                
-                                📑 Licence
-                                Ce projet est sous licence MIT.
-                                
-                                
-                                Avec ce `README.md`, vous avez un aperçu complet de l'utilisation et des résultats du modèle de classification d'images ! 😊
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+                            <pre class="mb--30" style="color: black">
+📸 Modèle de Classification d'Images avec Keras
+Ce projet utilise un modèle de réseau de neurones convolutif (CNN) pour la classification d'images. Le modèle est entraîné pour différencier deux classes d'images (par exemple, 'covid' et 'normal').
+
+🛠️ Prérequis
+Avant de commencer, assurez-vous d'avoir les bibliothèques suivantes installées :
+
+tensorflow
+matplotlib
+seaborn
+numpy
+pandas
+sklearn
+Vous pouvez les installer avec la commande suivante :
+
+pip install tensorflow matplotlib seaborn numpy pandas scikit-learn
+🚀 Fonctionnement
+1. Construction du Modèle
+Le modèle CNN est constitué des étapes suivantes :
+
+Convolution : Filtrage des caractéristiques de l'image.
+MaxPooling : Réduction de la dimensionnalité pour plus d'efficacité.
+Dropout : Désactivation aléatoire de neurones pour éviter le surapprentissage (overfitting).
+Flatten : Conversion des données en vecteur unidimensionnel.
+Dense : Couche entièrement connectée avec activation ReLU pour la première couche et Sigmoid pour la dernière couche.
+2. Compilation du Modèle
+Le modèle utilise :
+
+Adam comme optimiseur
+Binary Crossentropy comme fonction de perte
+Accuracy comme métrique d'évaluation
+3. Entraînement du Modèle
+L'entraînement utilise un ImageDataGenerator pour augmenter les images d'entraînement (rotation, zoom, déplacement, etc.) et pour normaliser les pixels. Un modèle est sauvegardé après chaque époque si sa précision est la meilleure (ModelCheckpoint), et l'entraînement s'arrête tôt si la perte de validation n'améliore plus après 2 époques (EarlyStopping).
+
+4. Visualisation des Résultats
+Des graphiques sont tracés pour observer l'évolution de la perte et de la précision du modèle pendant l'entraînement. Les graphiques incluent :
+
+Loss : Evolution de la perte durant l'entraînement.
+Accuracy : Evolution de la précision durant l'entraînement.
+5. Évaluation du Modèle
+Après l'entraînement, le modèle est évalué avec un rapport de classification (classification_report) et une matrice de confusion (confusion_matrix) pour observer la performance sur les données d'entraînement.
+
+6. Prédictions
+Le modèle peut prédire la classe d'une image donnée. Une image est chargée, prétraitée et ensuite prédite pour déterminer si elle appartient à la classe "covid" ou "normal".
+
+📊 Exemple de Résultat
+Lors de l'évaluation sur les images d'entraînement, les résultats obtenus peuvent être comme suit :
+
+precision    recall  f1-score   support
+0       0.38      1.00      0.55        94
+1       0.00      0.00      0.00       155
+
+accuracy                           0.38       249
+macro avg       0.19      0.50      0.27       249
+weighted avg       0.14      0.38      0.21       249
+Une matrice de confusion peut également être générée :
+
+Matrice de confusion
+
+7. Prédiction d'une Nouvelle Image
+Pour prédire la classe d'une nouvelle image :
+
+test_image = image.load_img('pred.jpeg', target_size=(64,64))
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(test_image, axis=0)
+result = classifier.predict(test_image)
+
+for key, value in training_set.class_indices.items():
+if result == value:
+print('La classe prédite est:', key)
+📚 Conclusion
+Ce modèle de classification d'images permet de différencier des classes basées sur des caractéristiques visuelles. Il peut être amélioré par des techniques supplémentaires comme la régularisation, l'ajustement des hyperparamètres et l'augmentation des données. Utilisez ce modèle comme base pour des applications de reconnaissance d'images.
+
+📥 Contribution
+Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations ou des corrections, n'hésitez pas à soumettre une pull request.
+
+📑 Licence
+Ce projet est sous licence MIT.
+
+
+Avec ce `README.md`, vous avez un aperçu complet de l'utilisation et des résultats du modèle de classification d'images ! 😊
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
@@ -3124,173 +3128,174 @@ Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <h3>
                                 <span>CNN_MNIST</span> Modèle CNN sur le dataset MNIST
                             </h3>
-                            <pre class="mb--30">Classification d'images avec un CNN 🖼️🤖
-                                Ce projet utilise un réseau de neurones convolutifs (CNN) pour la classification d'images du dataset MNIST. Ce README détaille les étapes nécessaires pour exécuter ce projet, de la préparation de l'environnement à la prédiction des nouvelles images.
-                                
-                                1️⃣ Préparation de l’environnement 🚀
-                                Installation des bibliothèques nécessaires 📦
-                                Installez les bibliothèques suivantes en exécutant les commandes :
-                                
-                                pip install tensorflow
-                                pip install matplotlib
-                                pip install numpy
-                                Importation des bibliothèques 📚
-                                import matplotlib.pyplot as plt
-                                import numpy as np
-                                import tensorflow as tf
-                                from tensorflow.keras import Sequential
-                                from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
-                                from tensorflow.keras.preprocessing.image import ImageDataGenerator
-                                import random
-                                2️⃣ Chargement et exploration du dataset 📊
-                                Chargement des données MNIST
-                                (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
-                                Les images sont normalisées pour faciliter l'apprentissage.
-                                Une dimension est ajoutée pour correspondre aux entrées du CNN.
-                                Visualisation des données augmentées
-                                train_datagen = ImageDataGenerator(
-                                    rotation_range=20, width_shift_range=0.2, height_shift_range=0.2,
-                                    shear_range=0.2, zoom_range=0.2, horizontal_flip=False, fill_mode='nearest'
-                                )
-                                
-                                fig, axes = plt.subplots(1, 5, figsize=(10, 2))
-                                for i in range(5):
-                                    augmented_image = train_datagen.random_transform(x_train[i])
-                                    axes[i].imshow(augmented_image.squeeze(), cmap='gray')
-                                    axes[i].axis('off')
-                                plt.show()
-                                3️⃣ Création du modèle CNN 🧠
-                                Le modèle CNN est composé de deux couches de convolution et de max-pooling pour extraire les caractéristiques des images, puis de couches denses pour effectuer la classification.
-                                
-                                classifier = Sequential([
-                                    Conv2D(32, (3, 3), input_shape=(28, 28, 1), activation="relu"),
-                                    MaxPooling2D(pool_size=(2, 2)),
-                                    Conv2D(64, (3, 3), activation="relu"),
-                                    MaxPooling2D(pool_size=(2, 2)),
-                                    Flatten(),
-                                    Dense(units=128, activation="relu"),
-                                    Dense(units=10, activation="softmax")
-                                ])
-                                4️⃣ Compilation et entraînement ⚡
-                                Le modèle est compilé avec l'optimiseur adam et la fonction de perte sparse_categorical_crossentropy.
-                                
-                                classifier.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=['accuracy'])
-                                history = classifier.fit(
-                                    train_datagen.flow(x_train, y_train, batch_size=32),
-                                    validation_data=(x_test, y_test),
-                                    epochs=5
-                                )
-                                5️⃣ Évaluation du modèle 📈
-                                Tracer les courbes de précision et de perte
-                                plt.figure(figsize=(12, 5))
-                                
-                                plt.subplot(1, 2, 1)
-                                plt.plot(history.history['accuracy'], label='Précision entraînement')
-                                plt.plot(history.history['val_accuracy'], label='Précision validation')
-                                plt.xlabel('Époques')
-                                plt.ylabel('Précision')
-                                plt.legend()
-                                plt.title('Évolution de la précision')
-                                
-                                plt.subplot(1, 2, 2)
-                                plt.plot(history.history['loss'], label='Perte entraînement')
-                                plt.plot(history.history['val_loss'], label='Perte validation')
-                                plt.xlabel('Époques')
-                                plt.ylabel('Perte')
-                                plt.legend()
-                                plt.title('Évolution de la perte')
-                                
-                                plt.show()
-                                Précision sur le test set 🎯
-                                test_loss, test_acc = classifier.evaluate(x_test, y_test, verbose=2)
-                                print(f"\nPrécision sur le test set : {test_acc * 100:.2f}%")
-                                6️⃣ Prédiction sur de nouvelles images 🔮
-                                Sélectionnez une image au hasard, effectuez la prédiction et comparez-la à la vraie étiquette.
-                                
-                                index = random.randint(0, len(x_test))  
-                                test_image = x_test[index]
-                                
-                                plt.imshow(test_image.squeeze(), cmap='gray')
-                                plt.axis('off')
-                                plt.title("Image test")
-                                plt.show()
-                                
-                                test_image = np.expand_dims(test_image, axis=0)
-                                prediction = classifier.predict(test_image)
-                                predicted_label = np.argmax(prediction)
-                                
-                                print(f"Prédiction du modèle : {predicted_label}")
-                                print(f"Vraie étiquette : {y_test[index]}")
-                                Si la prédiction est correcte, un emoji ✅ sera affiché, sinon un emoji ❌ sera affiché.
-                                
-                                Bonus : Améliorations possibles 🎁
-                                Vous pouvez utiliser un modèle pré-entraîné tel que MobileNetV2 pour améliorer les performances du modèle.
-                                
-                                Chargement et transformation des données
-                                Les images sont redimensionnées à 224x224 pour être compatibles avec MobileNetV2, et des transformations sont appliquées.
-                                
-                                from tensorflow.keras.applications import MobileNetV2
-                                from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-                                from tensorflow.keras.preprocessing.image import ImageDataGenerator
-                                
-                                x_train = np.repeat(x_train, 3, axis=-1)
-                                x_test = np.repeat(x_test, 3, axis=-1)
-                                Construction du modèle avec MobileNetV2
-                                base_model = MobileNetV2(input_shape=(224, 224, 3), include_top=False, weights="imagenet")
-                                base_model.trainable = False
-                                
-                                model = Sequential([
-                                    tf.keras.layers.Resizing(224, 224),
-                                    base_model,
-                                    Flatten(),
-                                    Dense(128, activation="relu"),
-                                    Dropout(0.5),
-                                    Dense(10, activation="softmax")
-                                ])
-                                Entraînement avec Data Augmentation
-                                history = model.fit(training_set, validation_data=testing_set, epochs=5)
-                                Visualisation des performances
-                                plt.figure(figsize=(12, 5))
-                                
-                                plt.subplot(1, 2, 1)
-                                plt.plot(history.history['accuracy'], label='Précision entraînement')
-                                plt.plot(history.history['val_accuracy'], label='Précision validation')
-                                plt.xlabel('Époques')
-                                plt.ylabel('Précision')
-                                plt.legend()
-                                plt.title('Évolution de la précision')
-                                
-                                plt.subplot(1, 2, 2)
-                                plt.plot(history.history['loss'], label='Perte entraînement')
-                                plt.plot(history.history['val_loss'], label='Perte validation')
-                                plt.xlabel('Époques')
-                                plt.ylabel('Perte')
-                                plt.legend()
-                                plt.title('Évolution de la perte')
-                                
-                                plt.show()
-                                Test sur une image aléatoire
-                                idx = random.randint(0, len(x_test) - 1)
-                                test_image = x_test[idx]
-                                test_image_resized = tf.image.resize(test_image, (224, 224))
-                                test_image_resized = np.expand_dims(test_image_resized, axis=0)
-                                
-                                prediction = model.predict(test_image_resized)
-                                predicted_label = np.argmax(prediction)
-                                
-                                plt.imshow(test_image.squeeze(), cmap='gray')
-                                plt.axis('off')
-                                plt.title(f"Prédiction du modèle: {predicted_label}")
-                                plt.show()
-                                Conclusion 🎉
-                                Ce modèle atteint une précision de 98.47% sur le test set avec le CNN classique et 56.55% avec le modèle pré-entraîné MobileNetV2. Vous pouvez améliorer encore ce modèle en ajustant les hyperparamètres ou en fine-tunant les couches du modèle pré-entraîné.
-                                
-                                Merci d'avoir consulté ce projet ! 😃
-                                
-                                
-                                N'hésitez pas à me faire savoir si vous avez besoin d'autres détails ou modifications. 😊
-                                
-                                Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
+                            <pre class="mb--30" style="color: black">
+Classification d'images avec un CNN 🖼️🤖
+Ce projet utilise un réseau de neurones convolutifs (CNN) pour la classification d'images du dataset MNIST. Ce README détaille les étapes nécessaires pour exécuter ce projet, de la préparation de l'environnement à la prédiction des nouvelles images.
+
+1️⃣ Préparation de l’environnement 🚀
+Installation des bibliothèques nécessaires 📦
+Installez les bibliothèques suivantes en exécutant les commandes :
+
+pip install tensorflow
+pip install matplotlib
+pip install numpy
+Importation des bibliothèques 📚
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import random
+2️⃣ Chargement et exploration du dataset 📊
+Chargement des données MNIST
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+Les images sont normalisées pour faciliter l'apprentissage.
+Une dimension est ajoutée pour correspondre aux entrées du CNN.
+Visualisation des données augmentées
+train_datagen = ImageDataGenerator(
+rotation_range=20, width_shift_range=0.2, height_shift_range=0.2,
+shear_range=0.2, zoom_range=0.2, horizontal_flip=False, fill_mode='nearest'
+)
+
+fig, axes = plt.subplots(1, 5, figsize=(10, 2))
+for i in range(5):
+augmented_image = train_datagen.random_transform(x_train[i])
+axes[i].imshow(augmented_image.squeeze(), cmap='gray')
+axes[i].axis('off')
+plt.show()
+3️⃣ Création du modèle CNN 🧠
+Le modèle CNN est composé de deux couches de convolution et de max-pooling pour extraire les caractéristiques des images, puis de couches denses pour effectuer la classification.
+
+classifier = Sequential([
+Conv2D(32, (3, 3), input_shape=(28, 28, 1), activation="relu"),
+MaxPooling2D(pool_size=(2, 2)),
+Conv2D(64, (3, 3), activation="relu"),
+MaxPooling2D(pool_size=(2, 2)),
+Flatten(),
+Dense(units=128, activation="relu"),
+Dense(units=10, activation="softmax")
+])
+4️⃣ Compilation et entraînement ⚡
+Le modèle est compilé avec l'optimiseur adam et la fonction de perte sparse_categorical_crossentropy.
+
+classifier.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=['accuracy'])
+history = classifier.fit(
+train_datagen.flow(x_train, y_train, batch_size=32),
+validation_data=(x_test, y_test),
+epochs=5
+)
+5️⃣ Évaluation du modèle 📈
+Tracer les courbes de précision et de perte
+plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Précision entraînement')
+plt.plot(history.history['val_accuracy'], label='Précision validation')
+plt.xlabel('Époques')
+plt.ylabel('Précision')
+plt.legend()
+plt.title('Évolution de la précision')
+
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label='Perte entraînement')
+plt.plot(history.history['val_loss'], label='Perte validation')
+plt.xlabel('Époques')
+plt.ylabel('Perte')
+plt.legend()
+plt.title('Évolution de la perte')
+
+plt.show()
+Précision sur le test set 🎯
+test_loss, test_acc = classifier.evaluate(x_test, y_test, verbose=2)
+print(f"\nPrécision sur le test set : {test_acc * 100:.2f}%")
+6️⃣ Prédiction sur de nouvelles images 🔮
+Sélectionnez une image au hasard, effectuez la prédiction et comparez-la à la vraie étiquette.
+
+index = random.randint(0, len(x_test))  
+test_image = x_test[index]
+
+plt.imshow(test_image.squeeze(), cmap='gray')
+plt.axis('off')
+plt.title("Image test")
+plt.show()
+
+test_image = np.expand_dims(test_image, axis=0)
+prediction = classifier.predict(test_image)
+predicted_label = np.argmax(prediction)
+
+print(f"Prédiction du modèle : {predicted_label}")
+print(f"Vraie étiquette : {y_test[index]}")
+Si la prédiction est correcte, un emoji ✅ sera affiché, sinon un emoji ❌ sera affiché.
+
+Bonus : Améliorations possibles 🎁
+Vous pouvez utiliser un modèle pré-entraîné tel que MobileNetV2 pour améliorer les performances du modèle.
+
+Chargement et transformation des données
+Les images sont redimensionnées à 224x224 pour être compatibles avec MobileNetV2, et des transformations sont appliquées.
+
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+x_train = np.repeat(x_train, 3, axis=-1)
+x_test = np.repeat(x_test, 3, axis=-1)
+Construction du modèle avec MobileNetV2
+base_model = MobileNetV2(input_shape=(224, 224, 3), include_top=False, weights="imagenet")
+base_model.trainable = False
+
+model = Sequential([
+tf.keras.layers.Resizing(224, 224),
+base_model,
+Flatten(),
+Dense(128, activation="relu"),
+Dropout(0.5),
+Dense(10, activation="softmax")
+])
+Entraînement avec Data Augmentation
+history = model.fit(training_set, validation_data=testing_set, epochs=5)
+Visualisation des performances
+plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Précision entraînement')
+plt.plot(history.history['val_accuracy'], label='Précision validation')
+plt.xlabel('Époques')
+plt.ylabel('Précision')
+plt.legend()
+plt.title('Évolution de la précision')
+
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label='Perte entraînement')
+plt.plot(history.history['val_loss'], label='Perte validation')
+plt.xlabel('Époques')
+plt.ylabel('Perte')
+plt.legend()
+plt.title('Évolution de la perte')
+
+plt.show()
+Test sur une image aléatoire
+idx = random.randint(0, len(x_test) - 1)
+test_image = x_test[idx]
+test_image_resized = tf.image.resize(test_image, (224, 224))
+test_image_resized = np.expand_dims(test_image_resized, axis=0)
+
+prediction = model.predict(test_image_resized)
+predicted_label = np.argmax(prediction)
+
+plt.imshow(test_image.squeeze(), cmap='gray')
+plt.axis('off')
+plt.title(f"Prédiction du modèle: {predicted_label}")
+plt.show()
+Conclusion 🎉
+Ce modèle atteint une précision de 98.47% sur le test set avec le CNN classique et 56.55% avec le modèle pré-entraîné MobileNetV2. Vous pouvez améliorer encore ce modèle en ajustant les hyperparamètres ou en fine-tunant les couches du modèle pré-entraîné.
+
+Merci d'avoir consulté ce projet ! 😃
+
+
+N'hésitez pas à me faire savoir si vous avez besoin d'autres détails ou modifications. 😊
+
+Cliquez  sur "VOIR LE PROJET" pour accéder au projet </pre>
                             <div class="button-group mt--20">
                                 <a href="#" class="rn-btn thumbs-icon">
                                     <span>J'AIME</span>
