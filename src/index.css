@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "@fontsource/abril-fatface/400.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+/* Tokens: near-black studio, gold accent, sharp corners everywhere */
+@theme {
+  --font-display: "Abril Fatface", Georgia, serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --color-ink: #0a0a0b;
+  --color-base: #111112;
+  --color-raised: #19191b;
+  --color-line: #29292c;
+  --color-fg: #ededeb;
+  --color-muted: #a3a3a1;
+  --color-gold: #f3c623;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-base font-sans text-fg antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-gold text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    section[id] {
+      scroll-margin-top: 0;
+    }
+  }
+}
+
+@utility text-fill-image {
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Tick marks of the gold ruler on the sidebar edge */
+@utility ruler-ticks {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-gold) 0 1px,
+    transparent 1px 6px
+  );
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-x {
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(1000%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-y {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-marquee {
+    animation: marquee 48s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+  .animate-pulse-x {
+    animation: pulse-x 3.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .animate-pulse-y {
+    animation: pulse-y 3.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-pulse-x,
+  .animate-pulse-y {
+    display: none;
+  }
+}
