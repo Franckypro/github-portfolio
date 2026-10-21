@@ -106,9 +106,7 @@ export default function Sidebar() {
         </button>
 
         <Logo />
-        <p className="mt-3 font-mono text-[12px] tracking-wide text-muted">
-          {profile.lastName}, {profile.role}
-        </p>
+        <p className="mt-3 font-mono text-[12px] leading-relaxed tracking-wide text-muted">{profile.shortRole}</p>
 
         <nav aria-label="Navigation principale" className="mt-14">
           <ul className="space-y-4">

@@ -3,7 +3,7 @@ import laptopGlow from "../assets/img/laptop-glow.webp";
 import { profile } from "../data/profile.ts";
 import { Reveal } from "./ui.tsx";
 
-const mailto = `mailto:${profile.email}?subject=${encodeURIComponent("Poste de Data Engineer")}`;
+const mailto = `mailto:${profile.email}?subject=${encodeURIComponent("Poste Data Engineer ou Chef de projet Data & IA")}`;
 
 export default function Contact() {
   const links = [
@@ -19,10 +19,10 @@ export default function Contact() {
       <div className="relative flex min-h-[80dvh] flex-col justify-center px-6 py-24 md:px-12 lg:px-16 xl:px-20">
         <Reveal className="max-w-3xl">
           <p className="font-mono text-[12px] tracking-[0.2em] text-gold uppercase">Contact</p>
-          <h2 className="mt-5 font-display text-5xl leading-[1.02] text-fg md:text-7xl">Vous recrutez un Data Engineer ?</h2>
-          <p className="mt-7 max-w-[52ch] text-lg leading-relaxed text-fg/85">
-            Je cherche un CDI partout en France, à partir de novembre 2026. Écrivez‑moi pour parler de vos flux de
-            données.
+          <h2 className="mt-5 font-display text-5xl leading-[1.02] text-fg md:text-7xl">Vous recrutez en data ou en IA ?</h2>
+          <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-fg/85">
+            Data Engineer ou Chef de projet Data & IA : je cherche un CDI partout en France, à partir de novembre
+            2026. Écrivez‑moi pour en parler.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">

@@ -1,12 +1,14 @@
 import patchCables from "../assets/img/patch-cables.webp";
+import chessKnights from "../assets/img/chess-knights.webp";
 import earthNetwork from "../assets/img/earth-network.webp";
 import { skillGroups } from "../data/profile.ts";
 import { marqueeTools } from "../lib/brands.ts";
 import { BrandIcon, Reveal, SectionTitle, ToolChip } from "./ui.tsx";
 
-// Bento placement on large screens: 8 groups, 8 cells, no gaps
+// Bento placement on large screens: 9 groups, 9 cells, no gaps (2 big tiles, a row of 4, then 2 + 1 + 1)
 const layout: Record<string, { cell: string; image?: string; tint?: boolean }> = {
   integration: { cell: "lg:col-span-2 lg:row-span-2", image: patchCables },
+  pilotage: { cell: "lg:col-span-2 lg:row-span-2", image: chessKnights },
   langages: { cell: "" },
   bdd: { cell: "" },
   orchestration: { cell: "", tint: true },
@@ -43,7 +45,7 @@ export default function Skills() {
         <Reveal className="max-w-3xl">
           <SectionTitle>Compétences</SectionTitle>
           <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted">
-            Les outils que j'utilise au quotidien, du message Kafka jusqu'au tableau de bord.
+            Les outils et les méthodes que j'utilise, du message Kafka jusqu'à la mise en production d'un projet IA.
           </p>
         </Reveal>
       </div>

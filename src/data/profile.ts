@@ -1,17 +1,20 @@
 // All visible content lives here so the site can be updated without touching components.
 // One photo per project, chosen for its subject; portrait crops because the panels are taller than wide
+import planningWall from "../assets/img/project-planning-wall.webp";
 import shipPort from "../assets/img/project-ship-port.webp";
-import conveyor from "../assets/img/project-conveyor.webp";
-import padlock from "../assets/img/project-padlock.webp";
+import geeseMigration from "../assets/img/project-geese-migration.webp";
 import robotArms from "../assets/img/project-robot-arms.webp";
-import goldMedals from "../assets/img/project-gold-medals.webp";
+import conveyor from "../assets/img/project-conveyor.webp";
 import calendar from "../assets/img/project-calendar.webp";
+import goldMedals from "../assets/img/project-gold-medals.webp";
+import padlock from "../assets/img/project-padlock.webp";
 
 export const profile = {
   firstName: "Francky",
   lastName: "Fouejio",
-  role: "Data Engineer",
-  tagline: "Je fiabilise les flux de données entre applications avec Talend, Kafka, les API et l'automatisation.",
+  role: "Data Engineer et Chef de projet Data & IA",
+  shortRole: "Data Engineer, Chef de projet Data & IA",
+  tagline: "Je construis les flux de données et je pilote les projets IA.",
   availability: "Disponible en CDI · novembre 2026",
   mobility: "Mobile partout en France",
   email: "ffouejio@gmail.com",
@@ -33,56 +36,113 @@ export const navItems = [
 
 export type SectionId = (typeof navItems)[number]["id"];
 
+// Two figures per role, all taken from real missions
 export const impact = [
-  { prefix: "-", value: 97, suffix: " %", label: "d'erreurs et de doublons sur 7 projets clients", source: "MyAIFactory" },
+  { prefix: "", value: 8, suffix: "", label: "projets IA menés jusqu'en production", source: "MyAIFactory, chef de projet" },
+  { prefix: "-", value: 15, suffix: " %", label: "sur les délais de livraison des projets IA", source: "MyAIFactory, chef de projet" },
+  { prefix: "-", value: 97, suffix: " %", label: "d'erreurs et de doublons sur 7 projets clients", source: "MyAIFactory, data engineer" },
   { prefix: "", value: 67, suffix: "", label: "workflows d'automatisation livrés en 3 mois", source: "Mission freelance ITIA" },
-  { prefix: "", value: 5, suffix: " M", label: "d'enregistrements centralisés depuis 11 sources", source: "Mission freelance ITIA" },
-  { prefix: "", value: 50, suffix: " M+", label: "de lignes traitées dans un Data Lake Medallion", source: "Projet IEF2I" },
 ];
 
-export type PipelineStage = {
+export type Stage = {
   key: string;
   name: string;
   text: string;
   tools: string[];
 };
 
-export const pipeline: PipelineStage[] = [
+export type Track = {
+  key: "data" | "projet";
+  label: string;
+  stages: Stage[];
+  note: string;
+};
+
+// The "Méthode" section shows one chain per role
+export const tracks: Track[] = [
   {
-    key: "sources",
-    name: "Sources",
-    text: "Je pars des applications métier, des bases relationnelles et des API.",
-    tools: ["Salesforce", "Cardex", "SQL Server", "Oracle", "PostgreSQL"],
+    key: "data",
+    label: "Construire les flux",
+    stages: [
+      {
+        key: "sources",
+        name: "Sources",
+        text: "Je pars des applications métier, des bases relationnelles et des API.",
+        tools: ["Salesforce", "Cardex", "SQL Server", "Oracle", "PostgreSQL"],
+      },
+      {
+        key: "ingestion",
+        name: "Ingestion",
+        text: "Je publie et je consomme les messages Kafka, et je développe les jobs Talend Cloud.",
+        tools: ["Apache Kafka", "Talend Cloud", "Java"],
+      },
+      {
+        key: "transformation",
+        name: "Transformation",
+        text: "Je route, je nettoie et je contrôle les données avant de les transmettre.",
+        tools: ["Kafka Streams", "Schema Registry", "Python", "SQL"],
+      },
+      {
+        key: "orchestration",
+        name: "Orchestration",
+        text: "Je planifie les traitements et j'automatise les reprises sur erreur.",
+        tools: ["TMC", "n8n", "Apache Airflow"],
+      },
+      {
+        key: "exposition",
+        name: "Livraison",
+        text: "Je livre la donnée aux systèmes cibles et aux équipes métier.",
+        tools: ["API REST", "JSON", "Power BI"],
+      },
+    ],
+    note: "Chaque échange est sécurisé : OAuth2 pour les API, secrets récupérés dans Vault, connexions TLS et certificats vérifiés dans les truststores Java.",
   },
   {
-    key: "ingestion",
-    name: "Ingestion",
-    text: "Je publie et je consomme les messages Kafka, et je développe les jobs Talend Cloud.",
-    tools: ["Apache Kafka", "Talend Cloud", "Java"],
-  },
-  {
-    key: "transformation",
-    name: "Transformation",
-    text: "Je route, je nettoie et je contrôle les données avant de les transmettre.",
-    tools: ["Kafka Streams", "Schema Registry", "Python", "SQL"],
-  },
-  {
-    key: "orchestration",
-    name: "Orchestration",
-    text: "Je planifie les traitements et j'automatise les reprises sur erreur.",
-    tools: ["TMC", "n8n", "Apache Airflow"],
-  },
-  {
-    key: "exposition",
-    name: "Livraison",
-    text: "Je livre la donnée aux systèmes cibles et aux équipes métier.",
-    tools: ["API REST", "JSON", "Power BI"],
+    key: "projet",
+    label: "Piloter les projets",
+    stages: [
+      {
+        key: "cadrage",
+        name: "Cadrage",
+        text: "Je recueille les besoins avec les équipes métier et les dirigeants, puis je fixe le périmètre.",
+        tools: ["Recueil des besoins", "Notion"],
+      },
+      {
+        key: "specifications",
+        name: "Spécifications",
+        text: "Je traduis le besoin en spécifications fonctionnelles et en user stories priorisées.",
+        tools: ["Spécifications", "User stories", "Jira"],
+      },
+      {
+        key: "sprints",
+        name: "Sprints",
+        text: "Je pilote la livraison en Scrum, avec l'équipe technique et le client.",
+        tools: ["Scrum", "Backlog", "Jira"],
+      },
+      {
+        key: "recette",
+        name: "Recette",
+        text: "Je prépare les jeux de test et je valide chaque livraison avec les utilisateurs.",
+        tools: ["Jeux de test", "Recette"],
+      },
+      {
+        key: "production",
+        name: "Mise en production",
+        text: "Je suis le déploiement et je documente pour l'équipe qui prendra le relais.",
+        tools: ["Documentation", "Suivi"],
+      },
+    ],
+    note: "Chez MyAIFactory : 8 projets IA menés jusqu'en production avec une équipe de 3, et des délais de livraison réduits de 15 %.",
   },
 ];
+
+export const projectCategories = ["Data Engineering", "Pilotage de projet", "IA et automatisation"] as const;
+export type ProjectCategory = (typeof projectCategories)[number];
 
 export type Project = {
   id: string;
   context: string;
+  categories: ProjectCategory[];
   title: string;
   summary: string;
   points: string[];
@@ -95,8 +155,24 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "pilotage-pme",
+    context: "MyAIFactory, 2025 - 2026",
+    categories: ["Pilotage de projet", "IA et automatisation"],
+    title: "Pilotage de projets IA pour des TPE et PME",
+    summary: "Cadrer, spécifier et livrer des projets IA pour des dirigeants de TPE et PME, du besoin à la mise en production.",
+    points: [
+      "8 projets IA menés jusqu'en production, avec une équipe technique de 3 personnes.",
+      "Délais de livraison réduits de 15 % en cadrant les besoins, en rédigeant les spécifications et en pilotant les sprints.",
+      "Backlog planifié et priorisé avec les clients, livrables suivis jusqu'à la mise en production.",
+    ],
+    tags: ["Scrum", "Jira", "Notion", "Spécifications fonctionnelles", "User stories"],
+    image: planningWall,
+    imageAlt: "Mur de planification couvert de post-it et de plans de projet",
+  },
+  {
     id: "cardex-salesforce",
     context: "MyAIFactory, 2026",
+    categories: ["Data Engineering"],
     title: "Flux Cardex et Salesforce routés par navire",
     summary:
       "Acheminer les données métier des systèmes sources vers Cardex et Salesforce, avec un routage propre à chaque navire.",
@@ -111,8 +187,39 @@ export const projects: Project[] = [
     imageAlt: "Porte-conteneurs à quai de nuit, sous les grues illuminées d'un port",
   },
   {
+    id: "migration-crm",
+    context: "Projet de fin d'études IEF2I, en cours",
+    categories: ["Data Engineering", "Pilotage de projet"],
+    title: "Migration des données d'un CRM",
+    summary: "Un double rôle sur un cas d'entreprise : concevoir l'architecture data et piloter la migration.",
+    points: [
+      "Modèle de données cible et mapping de plus de 60 objets.",
+      "Alimentation et synchronisation automatisées (Make, API REST, Airflow), avec contrôles qualité.",
+      "Plan de migration, jeux de test et recette avec les utilisateurs : 98 % de tests réussis.",
+    ],
+    tags: ["Python", "Apache Airflow", "Make", "API REST", "Plan de migration", "Recette"],
+    image: geeseMigration,
+    imageAlt: "Vol d'oies sauvages en formation dans le ciel",
+  },
+  {
+    id: "automatisation",
+    context: "MyAIFactory et mission ITIA, 2025 - 2026",
+    categories: ["IA et automatisation"],
+    title: "Automatisation des processus métier",
+    summary: "Des workflows qui suppriment la ressaisie et synchronisent les outils SaaS, avec des modèles d'IA générative.",
+    points: [
+      "67 workflows livrés en 3 mois chez ITIA, après un comparatif de plus de 30 outils.",
+      "5 à 10 h de ressaisie supprimées par semaine et par processus chez les clients de MyAIFactory.",
+      "Erreurs et doublons réduits de 97 % sur 7 projets grâce aux contrôles qualité des flux.",
+    ],
+    tags: ["n8n", "Make", "Zapier", "API REST", "IA générative", "Webhooks"],
+    image: robotArms,
+    imageAlt: "Bras robotisés orange sur une ligne de production automatisée",
+  },
+  {
     id: "pipeline-ecommerce",
     context: "Projet IEF2I, 2026",
+    categories: ["Data Engineering"],
     title: "Pipeline e-commerce industrialisé",
     summary: "De la collecte au calcul des KPI, un pipeline orchestré, testé et conteneurisé.",
     points: [
@@ -126,37 +233,25 @@ export const projects: Project[] = [
     link: { label: "Voir le code", href: "https://github.com/Franckypro/airflow-ecommerce-project" },
   },
   {
-    id: "talend-recovery",
-    context: "MyAIFactory, 2026",
-    title: "Remise en service de flux Talend",
-    summary: "Comprendre pourquoi des traitements échouaient, puis rétablir les échanges avec leurs dépendances.",
+    id: "doctolib",
+    context: "Projet de fin d'études Ascencia, 2025",
+    categories: ["IA et automatisation", "Pilotage de projet"],
+    title: "Prédire les annulations de rendez-vous",
+    summary: "Sur un cas Doctolib, anticiper les rendez-vous non honorés et organiser l'équipe projet.",
     points: [
-      "Diagnostic : Schema Registry inaccessible après un changement d'IP, token Vault expiré, certificat manquant.",
-      "Analyse des tokens et des certificats dans les truststores Java, avec l'équipe infrastructure.",
-      "Relance des plans d'exécution TMC une fois les causes corrigées.",
+      "Modèle XGBoost à 0,81 d'AUC, servi par une API FastAPI.",
+      "Backlog Jira d'une équipe de 3, sur 5 sprints de 2 semaines.",
+      "Architectures AWS et Azure chiffrées pour 30 M d'appels par mois.",
     ],
-    result: "Traitements rétablis, causes réseau, authentification et TLS mieux identifiées.",
-    tags: ["Talend Cloud", "TMC", "Vault", "Schema Registry", "TLS", "Java"],
-    image: padlock,
-    imageAlt: "Cadenas ouvert relié à une chaîne métallique",
-  },
-  {
-    id: "automatisation",
-    context: "MyAIFactory, 2025 - 2026",
-    title: "Automatisation des processus de PME",
-    summary: "Des workflows qui suppriment la ressaisie et synchronisent les outils SaaS des clients.",
-    points: [
-      "5 à 10 h de ressaisie supprimées par semaine et par processus avec n8n, Make et Zapier.",
-      "Erreurs et doublons réduits de 97 % sur 7 projets grâce aux contrôles qualité des flux.",
-      "Applications et bases synchronisées en 5 minutes par une architecture événementielle.",
-    ],
-    tags: ["n8n", "Make", "Zapier", "API REST", "Webhooks", "Python"],
-    image: robotArms,
-    imageAlt: "Bras robotisés orange sur une ligne de production automatisée",
+    tags: ["Python", "XGBoost", "FastAPI", "Scrum", "Jira"],
+    image: calendar,
+    imageAlt: "Calendrier de rendez-vous avec des dates épinglées",
+    link: { label: "Voir le code", href: "https://github.com/Franckypro/Doctolib_NoShow" },
   },
   {
     id: "data-lake",
     context: "Projet IEF2I, 2025",
+    categories: ["Data Engineering"],
     title: "Data Lake en architecture Medallion",
     summary: "Un socle Bronze, Silver et Gold pour passer de la donnée brute à la donnée prête pour l'analyse.",
     points: [
@@ -169,19 +264,20 @@ export const projects: Project[] = [
     imageAlt: "Rangée de médailles d'or, clin d'œil aux couches Bronze, Silver et Gold",
   },
   {
-    id: "doctolib",
-    context: "Projet Ascencia, 2025",
-    title: "Prédire les annulations de rendez-vous",
-    summary: "Projet de fin d'études sur un cas Doctolib : anticiper les rendez-vous non honorés.",
+    id: "talend-recovery",
+    context: "MyAIFactory, 2026",
+    categories: ["Data Engineering"],
+    title: "Remise en service de flux Talend",
+    summary: "Comprendre pourquoi des traitements échouaient, puis rétablir les échanges avec leurs dépendances.",
     points: [
-      "Modèle XGBoost à 0,81 d'AUC, servi par une API FastAPI.",
-      "Backlog Jira d'une équipe de 3, sur 5 sprints de 2 semaines.",
-      "Architectures AWS et Azure chiffrées pour 30 M d'appels par mois.",
+      "Diagnostic : Schema Registry inaccessible après un changement d'IP, token Vault expiré, certificat manquant.",
+      "Analyse des tokens et des certificats dans les truststores Java, avec l'équipe infrastructure.",
+      "Relance des plans d'exécution TMC une fois les causes corrigées.",
     ],
-    tags: ["Python", "XGBoost", "FastAPI", "Scrum", "Jira"],
-    image: calendar,
-    imageAlt: "Calendrier de rendez-vous avec des dates épinglées",
-    link: { label: "Voir le code", href: "https://github.com/Franckypro/Doctolib_NoShow" },
+    result: "Traitements rétablis, causes réseau, authentification et TLS mieux identifiées.",
+    tags: ["Talend Cloud", "TMC", "Vault", "Schema Registry", "TLS", "Java"],
+    image: padlock,
+    imageAlt: "Cadenas ouvert relié à une chaîne métallique",
   },
 ];
 
@@ -191,7 +287,7 @@ export const experiences = [
     role: "Data Engineer et Chef de projet Data & IA",
     meta: "CDD, à distance",
     period: "Oct. 2025 - aujourd'hui",
-    text: "Intégration de flux avec Talend Cloud, Kafka et n8n, automatisation et pilotage de projets IA pour des TPE et PME.",
+    text: "Pilotage de projets IA pour des TPE et PME, intégration de flux avec Talend Cloud, Kafka et n8n, et automatisation.",
     highlight: "8 projets IA menés jusqu'en production",
   },
   {
@@ -199,7 +295,7 @@ export const experiences = [
     role: "Data Engineer et Chef de projet automatisation",
     meta: "Mission freelance, à distance",
     period: "Mars - mai 2025",
-    text: "Centralisation de sources hétérogènes dans des pipelines testés et automatisation de processus métier.",
+    text: "Choix techniques et architecture d'automatisation, centralisation de sources hétérogènes dans des pipelines testés.",
     highlight: "67 workflows livrés",
   },
   {
@@ -215,15 +311,15 @@ export const experiences = [
     role: "Data Engineer et Data Scientist",
     meta: "Stage, Douala",
     period: "Févr. - juil. 2023",
-    text: "Collecte de plus de 20 000 images et modèle CNN de détection des maladies des plantes, servi par Streamlit.",
-    highlight: "92,3 % de précision",
+    text: "Organisation des sprints Scrum de l'équipe projet et modèle CNN de détection des maladies des plantes.",
+    highlight: "-22 % de temps de développement",
   },
   {
     company: "ICCSOFT SA",
     role: "Développeur back‑end et data",
     meta: "CDD, Yaoundé",
     period: "Mai 2021 - janv. 2022",
-    text: "Plateforme de réservation : API Laravel et base MongoDB remodélisée.",
+    text: "Plateforme de réservation livrée par itérations : API Laravel et base MongoDB remodélisée.",
     highlight: "Requêtes 30 % plus rapides",
   },
 ];
@@ -232,8 +328,14 @@ export const skillGroups = [
   {
     key: "integration",
     title: "Intégration et streaming",
-    text: "Le cœur de mon métier : faire circuler la donnée entre les applications.",
+    text: "Faire circuler la donnée entre les applications, sans perte de format.",
     tools: ["Talend Cloud", "TMC", "Apache Kafka", "Kafka Streams", "Schema Registry", "API REST", "JSON"],
+  },
+  {
+    key: "pilotage",
+    title: "Gestion de projet",
+    text: "Cadrer, prioriser et livrer avec les équipes métier et techniques.",
+    tools: ["Scrum", "Jira", "Notion", "Cadrage", "Recueil des besoins", "Spécifications fonctionnelles", "User stories", "Recette"],
   },
   { key: "langages", title: "Langages", tools: ["Python", "Java", "SQL", "PowerShell", "Bash"] },
   { key: "bdd", title: "Bases de données", tools: ["SQL Server", "Oracle", "PostgreSQL", "MySQL", "MongoDB"] },
@@ -246,7 +348,7 @@ export const skillGroups = [
     tools: ["Apache Spark", "Databricks", "Snowflake", "Azure Data Factory", "AWS"],
   },
   { key: "securite", title: "Sécurité des échanges", tools: ["OAuth2", "Vault", "TLS", "Certificats Java"] },
-  { key: "ia", title: "IA, BI et méthodes", tools: ["scikit-learn", "XGBoost", "FastAPI", "Power BI", "Scrum", "Jira"] },
+  { key: "ia", title: "IA et BI", tools: ["scikit-learn", "XGBoost", "LLM", "FastAPI", "Streamlit", "Power BI"] },
 ];
 
 export const degrees = [

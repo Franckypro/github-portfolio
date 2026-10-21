@@ -28,7 +28,7 @@ export default function Hero() {
           {profile.lastName}
         </motion.h1>
 
-        <motion.p {...rise(0.32)} className="mt-8 max-w-[34ch] text-lg leading-relaxed text-muted md:text-xl">
+        <motion.p {...rise(0.32)} className="mt-8 max-w-[36ch] text-lg leading-relaxed text-muted md:text-xl">
           <span className="font-medium text-fg">{profile.role}.</span> {profile.tagline}
         </motion.p>
 

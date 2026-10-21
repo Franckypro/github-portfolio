@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRightIcon } from "@phosphor-icons/react";
-import { projects, type Project } from "../data/profile.ts";
+import { projectCategories, projects, type Project, type ProjectCategory } from "../data/profile.ts";
 import { Reveal, SectionTitle } from "./ui.tsx";
 
 /** One project panel: full-height image half, text half, sides alternating. */
@@ -28,6 +28,7 @@ function ProjectPanel({ project, flip }: { project: Project; flip: boolean }) {
       <div className="flex flex-col justify-center px-6 py-14 md:px-12 lg:px-16 xl:px-20">
         <Reveal>
           <p className="font-mono text-[12px] text-gold">{project.context}</p>
+          <p className="mt-2 text-[13px] text-muted">{project.categories.join(" et ")}</p>
           <h3 id={`${project.id}-title`} className="mt-4 font-display text-3xl leading-[1.08] text-fg md:text-[2.6rem]">
             {project.title}
           </h3>
@@ -73,21 +74,68 @@ function ProjectPanel({ project, flip }: { project: Project; flip: boolean }) {
   );
 }
 
+type Filter = "Tous" | ProjectCategory;
+
 export default function Projects() {
+  const [filter, setFilter] = useState<Filter>("Tous");
+  const visible = filter === "Tous" ? projects : projects.filter((project) => project.categories.includes(filter));
+  const options: { value: Filter; count: number }[] = [
+    { value: "Tous", count: projects.length },
+    ...projectCategories.map((category) => ({
+      value: category,
+      count: projects.filter((project) => project.categories.includes(category)).length,
+    })),
+  ];
+
   return (
     <section id="projets" className="border-t border-line bg-base">
       <div className="px-6 pt-20 pb-14 md:px-12 lg:px-16 lg:pt-24 xl:px-20">
         <Reveal className="max-w-3xl">
           <p className="font-mono text-[12px] tracking-[0.2em] text-gold uppercase">Réalisations</p>
-          <SectionTitle className="mt-5">Ce que j'ai construit</SectionTitle>
+          <SectionTitle className="mt-5">Ce que j'ai livré</SectionTitle>
           <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted">
-            Missions en entreprise et projets de Mastère, avec les outils et les chiffres réels.
+            Missions en entreprise et projets de Mastère, en data engineering comme en pilotage, avec les chiffres
+            réels.
           </p>
         </Reveal>
+
+        {/* Lets a recruiter jump to the side of the profile that matters for the role */}
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filtrer les réalisations">
+            {options.map(({ value, count }) => {
+              const selected = value === filter;
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => setFilter(value)}
+                  className={`inline-flex items-center gap-2 border px-4 py-2 text-[14px] font-medium whitespace-nowrap transition-colors duration-300 ${
+                    selected ? "border-gold bg-gold text-ink" : "border-line text-fg/85 hover:border-gold hover:text-gold"
+                  }`}
+                >
+                  {value}
+                  <span className={`font-mono text-[12px] ${selected ? "text-ink/70" : "text-muted"}`}>{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
-      {projects.map((project, index) => (
-        <ProjectPanel key={project.id} project={project} flip={index % 2 === 1} />
-      ))}
+
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={filter}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          {visible.map((project, index) => (
+            <ProjectPanel key={project.id} project={project} flip={index % 2 === 1} />
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }

@@ -1,6 +1,6 @@
-# Portfolio de Francky Fouejio, Data Engineer
+# Portfolio de Francky Fouejio, Data Engineer et Chef de projet Data & IA
 
-Site personnel d'une page : intégration de données, projets, parcours et compétences.
+Site personnel d'une page : flux de données, pilotage de projets IA, réalisations, parcours et compétences.
 Thème sombre, barre latérale fixe, panneaux plein écran alternés et accent or.
 
 ## Stack
