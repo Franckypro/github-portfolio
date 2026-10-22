@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
-import { ArrowUpRightIcon } from "@phosphor-icons/react";
+import { ArrowUpRightIcon, GithubLogoIcon } from "@phosphor-icons/react";
 import { projectCategories, projects, type Project, type ProjectCategory } from "../data/profile.ts";
 import { Reveal, SectionTitle } from "./ui.tsx";
 
@@ -57,16 +57,22 @@ function ProjectPanel({ project, flip }: { project: Project; flip: boolean }) {
             ))}
           </ul>
 
-          {project.link && (
-            <a
-              href={project.link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group/link mt-8 inline-flex items-center gap-2 border-b border-gold pb-1 text-[15px] font-medium text-gold"
-            >
-              {project.link.label}
-              <ArrowUpRightIcon size={16} className="transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-            </a>
+          {project.links && (
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              {project.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/link inline-flex items-center gap-2 border-b border-gold pb-1 text-[15px] font-medium text-gold"
+                >
+                  <GithubLogoIcon size={16} />
+                  {link.label}
+                  <ArrowUpRightIcon size={16} className="transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              ))}
+            </div>
           )}
         </Reveal>
       </div>

@@ -4,6 +4,7 @@ import Hero from "./components/Hero.tsx";
 import Impact from "./components/Impact.tsx";
 import Pipeline from "./components/Pipeline.tsx";
 import Projects from "./components/Projects.tsx";
+import GitHubRepos from "./components/GitHubRepos.tsx";
 import Experience from "./components/Experience.tsx";
 import Skills from "./components/Skills.tsx";
 import Education from "./components/Education.tsx";
@@ -25,6 +26,7 @@ export default function App() {
         <Impact />
         <Pipeline />
         <Projects />
+        <GitHubRepos />
         <Experience />
         <Skills />
         <Education />

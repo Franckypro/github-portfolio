@@ -16,7 +16,7 @@ export default function Hero() {
     <section id="accueil" className="grid min-h-[100dvh] pt-16 lg:grid-cols-[1.12fr_1fr] lg:pt-0">
       <div className="flex flex-col justify-center px-6 py-16 md:px-12 lg:px-14 xl:px-16">
         <motion.p {...rise(0.1)} className="font-mono text-[12px] tracking-[0.2em] text-gold uppercase">
-          {profile.availability}
+          {profile.availability} · partout en France
         </motion.p>
 
         <motion.h1

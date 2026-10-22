@@ -21,8 +21,8 @@ export default function Contact() {
           <p className="font-mono text-[12px] tracking-[0.2em] text-gold uppercase">Contact</p>
           <h2 className="mt-5 font-display text-5xl leading-[1.02] text-fg md:text-7xl">Vous recrutez en data ou en IA ?</h2>
           <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-fg/85">
-            Data Engineer ou Chef de projet Data & IA : je cherche un CDI partout en France, à partir de novembre
-            2026. Écrivez‑moi pour en parler.
+            Data Engineer ou Chef de projet Data & IA : je cherche un CDI partout en France. Écrivez‑moi pour en
+            parler.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">

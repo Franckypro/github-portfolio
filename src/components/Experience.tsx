@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon, GithubLogoIcon } from "@phosphor-icons/react";
 import { experiences } from "../data/profile.ts";
 import { Reveal, SectionTitle } from "./ui.tsx";
 
@@ -28,9 +29,21 @@ export default function Experience() {
                 <h3 className="mt-3 font-display text-3xl leading-tight text-fg">{item.company}</h3>
                 <p className="mt-1 text-[17px] font-medium text-fg/90">{item.role}</p>
                 <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-muted">{item.text}</p>
-                <p className="mt-4 inline-block bg-gold/10 px-3 py-1.5 text-[14px] font-medium text-gold">
-                  {item.highlight}
-                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <p className="inline-block bg-gold/10 px-3 py-1.5 text-[14px] font-medium text-gold">{item.highlight}</p>
+                  {item.link && (
+                    <a
+                      href={item.link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 border-b border-gold/60 pb-0.5 text-[14px] font-medium text-fg/90 transition-colors duration-300 hover:text-gold"
+                    >
+                      <GithubLogoIcon size={15} />
+                      {item.link.label}
+                      <ArrowUpRightIcon size={14} />
+                    </a>
+                  )}
+                </div>
               </Reveal>
             </li>
           ))}

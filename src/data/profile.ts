@@ -8,6 +8,9 @@ import conveyor from "../assets/img/project-conveyor.webp";
 import calendar from "../assets/img/project-calendar.webp";
 import goldMedals from "../assets/img/project-gold-medals.webp";
 import padlock from "../assets/img/project-padlock.webp";
+import jobTypewriter from "../assets/img/project-job-typewriter.webp";
+
+const GITHUB = "https://github.com/Franckypro";
 
 export const profile = {
   firstName: "Francky",
@@ -15,7 +18,7 @@ export const profile = {
   role: "Data Engineer et Chef de projet Data & IA",
   shortRole: "Data Engineer, Chef de projet Data & IA",
   tagline: "Je construis les flux de données et je pilote les projets IA.",
-  availability: "Disponible en CDI · novembre 2026",
+  availability: "Disponible en CDI",
   mobility: "Mobile partout en France",
   email: "ffouejio@gmail.com",
   linkedin: "https://www.linkedin.com/in/francky-joel-fouejio",
@@ -28,6 +31,7 @@ export const navItems = [
   { id: "accueil", label: "Accueil" },
   { id: "methode", label: "Méthode" },
   { id: "projets", label: "Projets" },
+  { id: "github", label: "GitHub" },
   { id: "parcours", label: "Parcours" },
   { id: "competences", label: "Compétences" },
   { id: "formation", label: "Formation" },
@@ -150,7 +154,7 @@ export type Project = {
   tags: string[];
   image: string;
   imageAlt: string;
-  link?: { label: string; href: string };
+  links?: { label: string; href: string }[];
 };
 
 export const projects: Project[] = [
@@ -230,7 +234,24 @@ export const projects: Project[] = [
     tags: ["Python", "Apache Airflow", "Jenkins", "Docker", "MongoDB", "pytest"],
     image: conveyor,
     imageAlt: "Convoyeurs d'un entrepôt logistique de commandes en ligne",
-    link: { label: "Voir le code", href: "https://github.com/Franckypro/airflow-ecommerce-project" },
+    links: [{ label: "Voir le code", href: `${GITHUB}/airflow-ecommerce-project` }],
+  },
+  {
+    id: "job-reco",
+    context: "Projet personnel, 2025 - 2026",
+    categories: ["Data Engineering", "IA et automatisation"],
+    title: "Moteur de recommandation d'offres d'emploi",
+    summary: "Collecter chaque jour des offres d'emploi sur plusieurs sites et les recommander selon le profil du candidat.",
+    points: [
+      "Pipeline d'ingestion quotidienne (Selenium, BeautifulSoup, MySQL) sur Indeed, Welcome to the Jungle et France Travail.",
+      "Trois moteurs NLP en cascade (lemmatisation, bigrammes, TF-IDF) : pertinence des recommandations améliorée de 30 %.",
+      "Index TF-IDF persistés et cache TTL : temps de calcul divisé par deux, 80 % de recalculs en moins.",
+    ],
+    result: "Le moteur est exposé par une API Flask testée avec pytest.",
+    tags: ["Python", "Selenium", "MySQL", "scikit-learn", "Flask", "pytest"],
+    image: jobTypewriter,
+    imageAlt: "Machine à écrire avec une feuille intitulée Job application",
+    links: [{ label: "Voir le code", href: `${GITHUB}/PROJET-JOB` }],
   },
   {
     id: "doctolib",
@@ -246,7 +267,10 @@ export const projects: Project[] = [
     tags: ["Python", "XGBoost", "FastAPI", "Scrum", "Jira"],
     image: calendar,
     imageAlt: "Calendrier de rendez-vous avec des dates épinglées",
-    link: { label: "Voir le code", href: "https://github.com/Franckypro/Doctolib_NoShow" },
+    links: [
+      { label: "Voir l'étude", href: `${GITHUB}/Doctolib_NoShow` },
+      { label: "Voir l'API", href: `${GITHUB}/Predict-No_show-doctolib` },
+    ],
   },
   {
     id: "data-lake",
@@ -305,6 +329,7 @@ export const experiences = [
     period: "Févr. - juil. 2024",
     text: "Industrialisation de l'ETL de l'entrepôt du risque crédit (Python, Talend, SQL Server) et modèle de scoring.",
     highlight: "-30 % d'incohérences dans l'entrepôt",
+    link: { label: "Voir l'application de scoring", href: `${GITHUB}/Credit_Risk` },
   },
   {
     company: "SAFACAM",
@@ -392,6 +417,43 @@ export const certifications = [
     issuer: "Microsoft Learn",
     date: "Janv. 2024",
     href: "https://learn.microsoft.com/fr-fr/users/franckyjolfouejio-1369/transcript/d4m60f5l5lw4mwy",
+  },
+];
+
+// Every public repository worth showing, grouped by field (descriptions taken from each README)
+export type Repo = { name: string; title: string; text: string; tech: string };
+
+export const repoGroups: { title: string; repos: Repo[] }[] = [
+  {
+    title: "Data Engineering et applications data",
+    repos: [
+      { name: "airflow-ecommerce-project", title: "Pipeline e-commerce industrialisé", text: "Collecte, qualité, KPI et stockage orchestrés par Airflow, avec CI/CD Jenkins.", tech: "Airflow, Jenkins, MongoDB, Docker" },
+      { name: "PROJET-JOB", title: "Moteur de recommandation d'offres d'emploi", text: "Scraping de plusieurs job boards, ETL, base SQL et application Flask de recommandation.", tech: "Python, Selenium, MySQL, Flask" },
+      { name: "Credit_Risk", title: "Scoring du risque crédit", text: "Application Streamlit de prédiction du risque crédit, avec authentification.", tech: "Python, Streamlit" },
+      { name: "requ-te_DC", title: "Retours des apprenants (Digital College)", text: "Application web et base de données pour collecter et analyser les retours sur les formations.", tech: "Python, Django, MySQL" },
+      { name: "Big_Data_Orange", title: "Qualité des oranges avec PySpark", text: "Analyse exploratoire et prédiction de la qualité avec un GBTRegressor.", tech: "PySpark, Spark MLlib" },
+    ],
+  },
+  {
+    title: "Machine learning et deep learning",
+    repos: [
+      { name: "Predict-No_show-doctolib", title: "API de prédiction des absences (Doctolib)", text: "Modèle de prédiction des rendez-vous non honorés, servi par une API et une application.", tech: "Python, XGBoost, FastAPI" },
+      { name: "Doctolib_NoShow", title: "Étude Doctolib : notebook et rapport", text: "Analyse, modélisation et rapport du projet de fin d'études sur les annulations.", tech: "Python, Jupyter" },
+      { name: "image_avec_Yolo8", title: "Détection d'objets avec YOLOv8", text: "Détection d'objets sur une vidéo de circulation.", tech: "YOLOv8, Python" },
+      { name: "3--CNN_covid", title: "Classification d'images covid", text: "Réseau convolutif Keras qui distingue les images covid des images normales.", tech: "TensorFlow, Keras" },
+      { name: "tensorflow_transferlearning", title: "Apprentissage par transfert", text: "Classification d'images en réutilisant un modèle ResNet50.", tech: "TensorFlow, ResNet50" },
+      { name: "CNN_MNIST", title: "Chiffres manuscrits avec un CNN", text: "Classification des images du jeu de données MNIST.", tech: "TensorFlow, Keras" },
+      { name: "DeepLearning_CHUN", title: "Prédiction du churn client", text: "Réseau de neurones qui prédit le départ des clients.", tech: "Python, Keras" },
+      { name: "diabetes_oversampling_undersampling", title: "Prédiction du diabète", text: "KNN et rééchantillonnage pour des données déséquilibrées.", tech: "scikit-learn, imblearn" },
+      { name: "ML_-regression_logistique", title: "Régression logistique", text: "Prédire un achat à partir de l'âge et du salaire estimé.", tech: "scikit-learn, pandas" },
+    ],
+  },
+  {
+    title: "BI et data visualisation",
+    repos: [
+      { name: "PowerBI_Financials_Data", title: "Tableau de bord financier", text: "Rapport Power BI construit sur des données financières.", tech: "Power BI" },
+      { name: "homelessness", title: "Sans-abrisme au Royaume-Uni", text: "Visualisation Tableau réalisée pour #VizForSocialGood.", tech: "Tableau" },
+    ],
   },
 ];
 
