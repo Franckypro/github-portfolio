@@ -194,7 +194,7 @@ export const projects: Project[] = [
     id: "migration-crm",
     context: "MyAIFactory, 2026",
     categories: ["Data Engineering", "Pilotage de projet"],
-    title: "Migration et automatisation d'un CRM",
+    title: "Migration d'un CRM vers Notion",
     summary: "Un double rôle sur une mission client : finaliser la migration vers un CRM Notion et fiabiliser les relances automatiques.",
     points: [
       "16 475 enregistrements repris et 20 537 relations reconstruites, à 90,4 % automatiquement.",
