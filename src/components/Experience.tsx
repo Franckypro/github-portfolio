@@ -11,7 +11,7 @@ export default function Experience() {
           <Reveal>
             <SectionTitle>Parcours</SectionTitle>
             <p className="mt-6 max-w-[42ch] text-lg leading-relaxed text-muted">
-              Cinq ans entre développement back‑end, data engineering et pilotage de projets data et IA.
+              Depuis 2021, six expériences entre développement back‑end, data engineering et pilotage de projets data et IA.
             </p>
           </Reveal>
         </div>
