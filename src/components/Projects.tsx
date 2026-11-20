@@ -29,7 +29,12 @@ function ProjectPanel({ project, flip }: { project: Project; flip: boolean }) {
         <Reveal>
           <p className="font-mono text-[12px] text-gold">{project.context}</p>
           <p className="mt-2 text-[13px] text-muted">{project.categories.join(" et ")}</p>
-          <h3 id={`${project.id}-title`} className="mt-4 font-display text-3xl leading-[1.08] text-fg md:text-[2.6rem]">
+          {/* Entre 1024 et 1279 px, la colonne de texte ne fait que 226 à 350 px : titre plus petit pour qu'un mot
+              long (« recommandation ») n'en sorte pas. Césure et coupure de mot en dernier recours. */}
+          <h3
+            id={`${project.id}-title`}
+            className="mt-4 font-display text-3xl leading-[1.08] text-fg hyphens-auto [overflow-wrap:break-word] md:text-[2.6rem] lg:text-[1.75rem] xl:text-[2.2rem] 2xl:text-[2.6rem]"
+          >
             {project.title}
           </h3>
           <p className="mt-5 max-w-[56ch] text-[17px] leading-relaxed text-fg/85">{project.summary}</p>

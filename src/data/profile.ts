@@ -9,6 +9,8 @@ import calendar from "../assets/img/project-calendar.webp";
 import goldMedals from "../assets/img/project-gold-medals.webp";
 import padlock from "../assets/img/project-padlock.webp";
 import jobTypewriter from "../assets/img/project-job-typewriter.webp";
+// Capture réelle du tableau Grafana du projet, recadrée en portrait
+import dataopsGrafana from "../assets/img/project-dataops-grafana.jpg";
 
 const GITHUB = "https://github.com/Franckypro";
 
@@ -225,6 +227,24 @@ export const projects: Project[] = [
     imageAlt: "Bras robotisés orange sur une ligne de production automatisée",
   },
   {
+    id: "plateforme-dataops",
+    context: "Projet personnel, 2026",
+    categories: ["Data Engineering"],
+    title: "Plateforme DataOps sur Kubernetes",
+    summary:
+      "Une plateforme de données complète sur un cluster Kubernetes local, lancée en une commande et testée de bout en bout par la CI.",
+    points: [
+      "Trino interroge des tables Apache Iceberg dans MinIO, alimentées par Airflow 3 avec les données ouvertes de l'ANCT sur la fibre et le cuivre (34 879 communes).",
+      "Contrôles qualité générés depuis un contrat YAML par table, requêtes Trino suivies par utilisateur et coût par namespace avec OpenCost.",
+      "Montée de version de Trino 483 vers 484 et retour arrière avec Helm, testés en CI comme les alertes Prometheus.",
+    ],
+    result: "Lancement complet en moins de 7 minutes sur une machine de CI vierge.",
+    tags: ["Kubernetes", "Helm", "Trino", "Apache Iceberg", "Apache Airflow", "GitHub Actions"],
+    image: dataopsGrafana,
+    imageAlt: "Tableau Grafana de la plateforme : Trino en service, tâches Airflow et mémoire par namespace",
+    links: [{ label: "Voir le code", href: `${GITHUB}/dataops-k8s-platform` }],
+  },
+  {
     id: "pipeline-ecommerce",
     context: "Projet IEF2I, 2026",
     categories: ["Data Engineering"],
@@ -439,6 +459,7 @@ export const repoGroups: { title: string; repos: Repo[] }[] = [
   {
     title: "Data Engineering et applications data",
     repos: [
+      { name: "dataops-k8s-platform", title: "Plateforme DataOps sur Kubernetes", text: "Trino et Iceberg sur MinIO, Airflow, déploiement testé en CI sur kind, supervision Prometheus et coûts OpenCost.", tech: "Kubernetes, Helm, Trino, Airflow" },
       { name: "airflow-ecommerce-project", title: "Pipeline e-commerce industrialisé", text: "Collecte, qualité, KPI et stockage orchestrés par Airflow, avec CI/CD Jenkins.", tech: "Airflow, Jenkins, MongoDB, Docker" },
       { name: "PROJET-JOB", title: "Moteur de recommandation d'offres d'emploi", text: "Scraping de plusieurs job boards, ETL, base SQL et application Flask de recommandation.", tech: "Python, Selenium, MySQL, Flask" },
       { name: "Credit_Risk", title: "Scoring du risque crédit", text: "Application Streamlit de prédiction du risque crédit, avec authentification.", tech: "Python, Streamlit" },
